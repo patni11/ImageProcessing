@@ -1,9 +1,9 @@
-package modifications;
+package Model;
 
 /**
  * A class to represent a pixel with a red value, green value, and blue value.
  */
-public class Pixel implements IData {
+public class Pixel {
   int r;
   int g;
   int b;

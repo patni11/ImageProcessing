@@ -1,12 +1,14 @@
 package modifications;
 
+import Model.Image;
+import Model.Pixel;
+
 /**
  * a function object to darken a .ppm image.
  */
-public class Darken implements ppmModification {
+public class Darken implements PPMModification {
 
-  @Override
-  public int[] modifyImage(int[] original) {
-    return new int[0];
+  public Image modifyImage(Image image) {
+    return new Image(4,5, new Pixel[][]{});
   }
 }

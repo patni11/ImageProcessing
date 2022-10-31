@@ -1,4 +1,4 @@
-package modifications;
+package Model;
 
 public class Image {
   private int height;
@@ -30,5 +30,8 @@ public class Image {
     return "P3\n" + this.height + "\n" + this.width + "\n" + "255\n" + pixelsString;
   }
 
-
+  public Pixel[][] getPixels() {
+    return this.pixels.clone();
+  }
+  
 }
