@@ -23,4 +23,7 @@ public class ImageProcessorController {
   public void run() {
 
   }
+  public void run2() {
+
+  }
 }
