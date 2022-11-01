@@ -100,9 +100,9 @@ public class ImageUtil {
 
       //write width and height to file
       String width = sc.next();
-      int widthInt = image.getMetaData()[0];
+      int widthInt = image.getWidth();
       String height = sc.next();
-      int heightInt = image.getMetaData()[1];
+      int heightInt = image.getHeight();
       writer.write(width + " " + height + "\n");
 
       //write the maxValue for pixels to the file
@@ -113,7 +113,9 @@ public class ImageUtil {
       //go through every pixel and write each rgb to the file
       for (int i = 0; i < heightInt; i++) {
         for (int j = 0; j < widthInt; j++) {
-          writer.write(sc.nextInt());
+          String value = sc.next();
+          System.out.println(value);
+          writer.write(value + "\n");
         }
       }
       writer.close();

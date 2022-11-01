@@ -1,21 +1,21 @@
 package Model;
 
 public class Image {
-  private int height;
   private int width;
+  private int height;
   private String comment;
   private Pixel[][] pixels;
 
   public Image(int height, int width, String comment, Pixel[][] pixels) {
-    this.height = height;
     this.width = width;
+    this.height = height;
     this.comment = comment;
     this.pixels = pixels;
   }
 
   public Image(int height, int width, Pixel[][] pixels) {
-    this.height = height;
     this.width = width;
+    this.height = height;
     this.comment = null;
     this.pixels = pixels;
   }
@@ -28,13 +28,13 @@ public class Image {
   }
 
   public String toString() {
-    String pixelsString = "";
+    StringBuilder pixelsString = new StringBuilder();
     for (Pixel[] rowOfPixels : pixels) {
       for (Pixel pixel: rowOfPixels) {
-        pixelsString += pixel.toString() + "\n";
+        pixelsString.append(pixel.toString() + "\n");
       }
     }
-    return "P3\n" + this.height + "\n" + this.width + "\n" + "255\n" + pixelsString;
+    return "P3\n" + this.width + "\n" + this.height + "\n" + "255\n" + pixelsString;
   }
 
   public Pixel[][] getPixels() {
