@@ -24,6 +24,14 @@ public class Pixel {
   }
 
   /**
+   * clone this Pixel object.
+   * @return a shallow copy of this Pixel
+   */
+  public Pixel clone() {
+    return new Pixel(this.r, this.g, this.b);
+  }
+
+  /**
    * a toString method gives the three values of r, g, and b as a string.
    * @return a string with r, g, and b listed with spaces between
    */
