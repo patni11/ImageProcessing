@@ -2,6 +2,8 @@ package clientInteractions;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.FileInputStream;
@@ -72,36 +74,39 @@ public class ImageUtil {
   }
 
 
-//
-//  /**
-//   * Save an image file in the PPM format.
-//   *
-//   * @param ppm the path of the file.
-//   */
-//  public static void savePPM(Image image, String name) throws IOException {
-//
-//    FileWriter writer = new FileWriter(name);
-//
-//    //handle the P3 token and write it to the new file
-//    writer.write("P3\n");
-//
-//    //write width and height to file
-//    String width = image.get;
-//    String height = ppm[1][1].toString();
-//    writer.write(width + " " + height + "\n");
-//
-//    //write the maxValue for pixels to the file
-//    String maxValue = ppm[2][0].toString();
-//    writer.write(maxValue + "\n");
-//
-//    //go through every pixel and write each rgb to the file
-//    for (int i=3;i<height;i++) {
-//      for (int j = 0; j < width; j++) {
-//        writer.write(ppm[i][j].toString());
-//      }
-//    }
-//    writer.close();
-//  }
+
+  /**
+   * Save an image file in the PPM format.
+   *
+   * @param image the image to be saved
+   * @param name the desired name to save the image as
+   */
+  public static void savePPM(Image image, String name) throws IOException {
+    String imageString = image.toString();
+    Reader reader = new StringReader(imageString);
+
+    FileWriter writer = new FileWriter(name);
+
+    //handle the P3 token and write it to the new file
+    writer.write("P3\n");
+
+    //write width and height to file
+    int width = reader.read();
+    int height = reader.read();
+    writer.write(width + " " + height + "\n");
+
+    //write the maxValue for pixels to the file
+    int maxValue = reader.read();
+    writer.write(maxValue + "\n");
+
+    //go through every pixel and write each rgb to the file
+    for (int i = 0; i < height; i++) {
+      for (int j = 0; j < width; j++) {
+        writer.write(reader.read());
+      }
+    }
+    writer.close();
+  }
 
   //demo main
 //  public static void main(String []args) {
