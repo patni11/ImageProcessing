@@ -1,9 +1,5 @@
 package modifications;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Function;
-
 import Model.Image;
 import Model.Pixel;
 
@@ -13,34 +9,44 @@ import Model.Pixel;
  * a function object to convert a .ppm image to greyscale (set rgb to average of rgb values?).
  */
 public class Greyscale implements PPMModification {
-  private Map<String, Function<Pixel, Pixel>> functions = new HashMap<>();
-
-  public void PPMModification(){
-    this.functions.put("red-component",);
-  }
 
   public Image modifyImage(String args, Image image) {
     Image imgCopy = new Image(image);
+
     for (Pixel[] rowOfPixels : imgCopy.getPixels()) {
       for (Pixel pixel: rowOfPixels) {
-
+        pixel = changePixel(args,pixel);
       }
     }
 
-    return new Image(4,5, new Pixel[][]{});
+    return imgCopy;
   }
 
-//  private Pixel changePixels(String args, Pixel pixel){
-//    switch (args){
-//      case ("red-component"):
-//        return red(pixel);
-//        break;
-//      case ("green-component"):
-//        return green(pixel);
-//        break;
-//
-//    }
-//  }
+  private Pixel changePixel(String arg, Pixel pixel){
+    Pixel p;
+    switch (arg){
+      case ("red-component"):
+        p = red(pixel);
+
+      case ("green-component"):
+        p = green(pixel);
+
+      case ("blue-component"):
+        p = blue(pixel);
+
+      case ("value-component"):
+        p = value(pixel);
+
+      case ("intensity-component"):
+        p = intensity(pixel);
+
+      case ("luma-component"):
+        p = luma(pixel);
+      default:
+        p = pixel;
+    }
+    return p;
+  }
 
   private Pixel red(Pixel p){
     return new Pixel(p.getR(),p.getR(),p.getR());
