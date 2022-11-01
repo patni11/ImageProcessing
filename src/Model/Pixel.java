@@ -31,6 +31,12 @@ public class Pixel {
     return new Pixel(this.r, this.g, this.b);
   }
 
+  public Pixel(Pixel pixel){
+    this.r = pixel.getR();
+    this.g = pixel.getG();
+    this.b = pixel.getB();
+  }
+
   /**
    * a toString method gives the three values of r, g, and b as a string.
    * @return a string with r, g, and b listed with spaces between

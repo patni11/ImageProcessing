@@ -8,5 +8,5 @@ import Model.Pixel;
  */
 public interface PPMModification {
 
-  Image modifyImage(Image image);
+  Image modifyImage(String arg, Image image);
 }

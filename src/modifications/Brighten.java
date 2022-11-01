@@ -13,7 +13,7 @@ public class Brighten implements PPMModification {
     this.increment = increment;
   }
 
-  public Image modifyImage(Image image) {
+  public Image modifyImage(String arg, Image image) {
     Image imgCopy = new Image(image);
     for (Pixel[] rowOfPixels : imgCopy.getPixels()) {
       for (Pixel pixel: rowOfPixels) {

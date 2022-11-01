@@ -13,7 +13,7 @@ public class FlipVertical implements PPMModification {
    * @param image the original image to be flipped
    * @return a new image that is the same as the original but flipped vertically
    */
-  public Image modifyImage(Image image) {
+  public Image modifyImage(String args, Image image) {
     int width = image.getWidth();
     int height = image.getHeight();
     Pixel[][] originalPixels = image.getPixels();
