@@ -30,6 +30,10 @@ public class Brighten implements PPMModification {
     if ((val + this.increment) >= 255){
       return 255;
     }
+
+    if ((val + this.increment) <= 0){
+      return 0;
+    }
     return (val + this.increment);
   }
 
