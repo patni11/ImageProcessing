@@ -20,6 +20,13 @@ public class Image {
     this.pixels = pixels;
   }
 
+  public Image(Image image) {
+    this.height = image.height;
+    this.width = image.width;
+    this.comment = null;
+    this.pixels = image.pixels;
+  }
+
   public String toString() {
     String pixelsString = "";
     for (Pixel[] rowOfPixels : pixels) {
@@ -33,5 +40,14 @@ public class Image {
   public Pixel[][] getPixels() {
     return this.pixels.clone();
   }
-  
+
+  public int getHeight(){
+    return this.height;
+  }
+
+  public int getWidth(){
+    return this.width;
+  }
+
+
 }
