@@ -1,5 +1,6 @@
 package clientInteractions;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
@@ -34,7 +35,7 @@ public class ImageUtil {
       return null;
     }
     StringBuilder builder = new StringBuilder();
-    String comment = new String();
+    String comment = "";
     //read the file line by line, and populate a string. This will throw away any comment lines
     while (sc.hasNextLine()) {
       String s = sc.nextLine();
@@ -51,26 +52,22 @@ public class ImageUtil {
     if (!token.equals("P3")) {
       System.out.println("Invalid PPM file: plain RAW file should begin with P3");
     }
+
     int width = sc.nextInt();
-    System.out.println("Width of image: "+width);
     int height = sc.nextInt();
-    System.out.println("Height of image: "+height);
-    int maxValue = sc.nextInt();
-    System.out.println("Maximum value of a color in this file (usually 255): "+maxValue);
 
     Pixel[][] pixels = new Pixel[height][width];
 
-    for (int i=0;i<height;i++) {
-      for (int j=0;j<width;j++) {
+    for (int i = 0; i < height; i++) {
+      for (int j = 0; j < width; j++) {
         int r = sc.nextInt();
         int g = sc.nextInt();
         int b = sc.nextInt();
-        System.out.println("Color of pixel ("+j+","+i+"): "+ r+","+g+","+b);
-        pixels[i][j] = new Pixel(r,g,b);
+        pixels[i][j] = new Pixel(r, g, b);
       }
     }
 
-    return new Image(height,width,comment,pixels);
+    return new Image(height, width, comment, pixels);
   }
 
 
@@ -82,52 +79,66 @@ public class ImageUtil {
    * @param name the desired name to save the image as
    */
   public static void savePPM(Image image, String name) throws IOException {
+    System.out.println("in the save function");
     String imageString = image.toString();
-    Reader reader = new StringReader(imageString);
+    System.out.println("toString is done");
+    Scanner sc = new Scanner(imageString);
 
-    FileWriter writer = new FileWriter(name);
+    FileWriter writer = null;
 
-    //handle the P3 token and write it to the new file
-    writer.write("P3\n");
-
-    //write width and height to file
-    int width = reader.read();
-    int height = reader.read();
-    writer.write(width + " " + height + "\n");
-
-    //write the maxValue for pixels to the file
-    int maxValue = reader.read();
-    writer.write(maxValue + "\n");
-
-    //go through every pixel and write each rgb to the file
-    for (int i = 0; i < height; i++) {
-      for (int j = 0; j < width; j++) {
-        writer.write(reader.read());
-      }
+    try {
+      writer = new FileWriter(name);
     }
-    writer.close();
+    catch (FileNotFoundException e) {
+      System.out.print(e);
+    }
+
+    if (writer != null) {
+      //handle the P3 token and write it to the new file
+      String token = sc.next();
+      writer.write(token + "\n");
+
+      //write width and height to file
+      String width = sc.next();
+      int widthInt = image.getMetaData()[0];
+      String height = sc.next();
+      int heightInt = image.getMetaData()[1];
+      writer.write(width + " " + height + "\n");
+
+      //write the maxValue for pixels to the file
+      String maxValue = sc.next();
+      writer.write(maxValue + "\n");
+
+      System.out.println("wrote metaData, about to write pixels");
+      //go through every pixel and write each rgb to the file
+      for (int i = 0; i < heightInt; i++) {
+        for (int j = 0; j < widthInt; j++) {
+          writer.write(sc.nextInt());
+        }
+      }
+      writer.close();
+    }
+
   }
 
   //demo main
-//  public static void main(String []args) {
-//    String filename;
-//
-//    if (args.length>0) {
-//        filename = args[0];
-//    }
-//    else {
-//        filename = "Koala.ppm";
-//    }
-//
-//    int[] ppm_output = new int[2];
-//    try {
-//      ppm_output = ImageUtil.savePPM(filename);
-//    } catch (FileNotFoundException e) {
-//      System.out.println(e.getMessage());
-//    } catch (IOException e) {
-//      System.out.println(e);
-//    }
-//  }
+  public static void main(String []args) throws IOException {
+    String name = "";
+    String filename;
+
+    if (args.length > 0) {
+        filename = args[0];
+    }
+    else {
+      name = "Koala";
+      filename = name + ".ppm";
+    }
+
+    Image image = ImageUtil.readPPM(filename);
+
+    ImageUtil.savePPM(image, name + " created copy" + ".ppm");
+
+  }
 
 }
 

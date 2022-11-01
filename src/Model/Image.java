@@ -4,21 +4,21 @@ package Model;
  * A class representing a ppm image file with meta data separate from data.
  */
 public class Image {
-  private int height;
   private int width;
+  private int height;
   private String comment;
   private Pixel[][] pixels;
 
-  public Image(int height, int width, String comment, Pixel[][] pixels) {
-    this.height = height;
+  public Image(int width, int height, String comment, Pixel[][] pixels) {
     this.width = width;
+    this.height = height;
     this.comment = comment;
     this.pixels = pixels;
   }
 
   public Image(int height, int width, Pixel[][] pixels) {
-    this.height = height;
     this.width = width;
+    this.height = height;
     this.comment = null;
     this.pixels = pixels;
   }
@@ -28,12 +28,13 @@ public class Image {
    * @return a string in the format of a ppm file
    */
   public String toString() {
-    String pixelsString = "";
-    for (Pixel[] rowOfPixels : pixels) {
-      for (Pixel pixel: rowOfPixels) {
-        pixelsString += pixel.toString() + "\n";
+    StringBuilder pixelsString = new StringBuilder();
+    for (int i = 0; i < height; i++) {
+      for (int j = 0; j < width; j++) {
+        pixelsString.append(pixels[j][i].toString() + "\n");
       }
     }
+    System.out.println("out of the double loop");
     return "P3\n" + this.height + "\n" + this.width + "\n" + "255\n" + pixelsString;
   }
 
