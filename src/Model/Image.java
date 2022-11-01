@@ -31,7 +31,8 @@ public class Image {
     StringBuilder pixelsString = new StringBuilder();
     for (Pixel[] rowOfPixels : pixels) {
       for (Pixel pixel: rowOfPixels) {
-        pixelsString.append(pixel.toString() + "\n");
+        pixelsString.append(pixel.toString());
+        pixelsString.append("\n");
       }
     }
     return "P3\n" + this.width + "\n" + this.height + "\n" + "255\n" + pixelsString;

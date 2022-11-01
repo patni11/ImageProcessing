@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
+import java.io.Writer;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.FileInputStream;
@@ -19,7 +20,10 @@ import Model.Pixel;
  */
 public class ImageUtil {
 
+
+
   /**
+   */
    * Read an image file in the PPM format and print the colors.
    *
    * @param filename the path of the file.
@@ -109,15 +113,26 @@ public class ImageUtil {
       String maxValue = sc.next();
       writer.write(maxValue + "\n");
 
+//      String throwaway = sc.next();
+
       System.out.println("wrote metaData, about to write pixels");
       //go through every pixel and write each rgb to the file
+      int count = 0;
       for (int i = 0; i < heightInt; i++) {
         for (int j = 0; j < widthInt; j++) {
           String value = sc.next();
-          System.out.println(value);
+//          System.out.println(value);
           writer.write(value + "\n");
+//          count += 1;
         }
       }
+      while (sc.hasNextLine()) {
+        count += 1;
+        System.out.println(count);
+        System.out.println(sc.next());
+      }
+      System.out.println(count);
+      System.out.println(sc.hasNextLine());
       writer.close();
     }
 
@@ -138,7 +153,7 @@ public class ImageUtil {
 
     Image image = ImageUtil.readPPM(filename);
 
-    ImageUtil.savePPM(image, name + " created copy" + ".ppm");
+//    ImageUtil.savePPM(image, name + " created copy" + ".ppm");
 
   }
 
