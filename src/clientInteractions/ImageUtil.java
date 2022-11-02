@@ -78,7 +78,7 @@ public class ImageUtil {
    *
    * @param filename the path of the file.
    */
-  public static Image readPPM(String filename) {
+  public static Image readPPM(String filename) throws FileNotFoundException {
     Scanner sc = null;
 
     try {
@@ -183,6 +183,7 @@ public class ImageUtil {
 
   }
 
+  /**
   //demo main
   public static void main(String []args) throws IOException {
     String name = "";
@@ -201,6 +202,7 @@ public class ImageUtil {
     ImageUtil.savePPM(image, name + " created copy" + ".ppm");
 
   }
+   */
 
 }
 

@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.FileNotFoundException;
+
 import Model.Image;
 import Model.ImageStorage;
 import clientInteractions.ImageUtil;
@@ -23,7 +25,7 @@ public class ImageModificationTest {
   Image redGreenBlueVertical;
 
   @Before
-  public void setup(){
+  public void setup() throws FileNotFoundException {
     redWhiteRed = ImageUtil.readPPM("testImages/redWhiteRed.ppm");
     redGreenBlue = ImageUtil.readPPM("testImages/redGreenBlue.ppm");
     random5x5 = ImageUtil.readPPM("testImages/random5x5.ppm");
