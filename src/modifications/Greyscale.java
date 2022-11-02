@@ -14,7 +14,7 @@ public class Greyscale implements PPMModification {
     Image imgCopy = new Image(image);
     int width = imgCopy.getWidth();
     int height = imgCopy.getHeight();
-    Pixel[][] newImg = new Pixel[width][height];
+    Pixel[][] newImg = new Pixel[height][width];
 
     for (int row = 0; row < height; row++){
       for (int col = 0; col < width; col++) {

@@ -24,16 +24,23 @@ public class Brighten implements PPMModification {
 
     }
 
-    Image imgCopy = new Image(image);
-    for (Pixel[] rowOfPixels : imgCopy.getPixels()) {
-      for (Pixel pixel: rowOfPixels) {
-        pixel.setR(getVal(pixel.getR()));
-        pixel.setG(getVal(pixel.getG()));
-        pixel.setB(getVal(pixel.getB()));
+    int height = image.getHeight();
+    int width = image.getWidth();
+    Pixel[][] pixels = image.getPixels();
+
+    Pixel[][] newPixels = new Pixel[height][width];
+
+    for (int r = 0; r < height; r++) {
+      for (int c = 0; c < width; c++) {
+        int newR = getVal(pixels[r][c].getR());
+        int newG = getVal(pixels[r][c].getG());
+        int newB = getVal(pixels[r][c].getB());
+
+        newPixels[r][c] = new Pixel(newR,newG,newB);
       }
     }
 
-    return imgCopy;
+    return new Image(height,width,newPixels);
   }
 
   private int getVal(int val){

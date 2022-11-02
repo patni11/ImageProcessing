@@ -16,19 +16,21 @@ public class ImageModificationTest {
   Image random5x5;
   Image redGreenBlue;
   Image redWhiteRed;
+  Image koala;
   @Before
   public void setup(){
     redWhiteRed = ImageUtil.readPPM("testImages/redWhiteRed.ppm");
     redGreenBlue = ImageUtil.readPPM("testImages/redGreenBlue.ppm");
     random5x5 = ImageUtil.readPPM("testImages/random5x5.ppm");
+    koala = ImageUtil.readPPM("Koala.ppm");
 
-    System.out.println(redWhiteRed.toString());
     //load images
     storage = new ImageStorage();
     PPMModification load = new Load(storage);
     load.modifyImage("redWhiteRed",redWhiteRed);
     load.modifyImage("redGreenBlue",redGreenBlue);
     load.modifyImage("random5x5",random5x5);
+    load.modifyImage("koala",koala);
 
   }
 
@@ -82,5 +84,20 @@ public class ImageModificationTest {
     PPMModification save = new Save();
     System.out.println(storage.getImage("redWhiteRed").toString());
     save.modifyImage("shubhOutput.ppm",storage.getImage("redWhiteRed"));
+  }
+
+  @Test
+  public void testKoala(){
+    PPMModification save = new Save();
+    PPMModification brighten = new Brighten();
+    PPMModification greyScale = new Greyscale();
+
+    Image bKoala = brighten.modifyImage("50", this.koala);
+    Image dKoala = brighten.modifyImage("-80", this.koala);
+    Image greyKoala = greyScale.modifyImage("red-component", this.koala);
+
+    save.modifyImage("bKoala.ppm",bKoala);
+    save.modifyImage("dKoala.ppm",dKoala);
+    save.modifyImage("greyKoala.ppm",greyKoala);
   }
 }

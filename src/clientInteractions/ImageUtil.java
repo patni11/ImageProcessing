@@ -106,11 +106,8 @@ public class ImageUtil {
       System.out.println("Invalid PPM file: plain RAW file should begin with P3");
     }
     int width = sc.nextInt();
-    System.out.println("Width of image: "+width);
     int height = sc.nextInt();
-    System.out.println("Height of image: "+height);
     int maxValue = sc.nextInt();
-    System.out.println("Maximum value of a color in this file (usually 255): "+maxValue);
 
     Pixel[][] pixels = new Pixel[height][width];
 
@@ -120,7 +117,6 @@ public class ImageUtil {
         int g = sc.nextInt();
         int b = sc.nextInt();
         pixels[i][j] = new Pixel(r,g,b);
-        //System.out.println("Color of pixel ("+j+","+i+"): "+ r+","+g+","+b);
       }
     }
 
