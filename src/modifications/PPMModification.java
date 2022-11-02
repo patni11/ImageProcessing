@@ -1,5 +1,7 @@
 package modifications;
 
+import java.io.IOException;
+
 import Model.Image;
 import Model.Pixel;
 
@@ -8,5 +10,5 @@ import Model.Pixel;
  */
 public interface PPMModification {
 
-  Image modifyImage(String arg, Image image);
+  Image modifyImage(String arg, Image image) ;
 }

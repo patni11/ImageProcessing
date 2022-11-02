@@ -6,6 +6,11 @@ import Model.ImageStorage;
 public class Load implements PPMModification{
 
   private ImageStorage imageStorage;
+
+  public Load(ImageStorage storage) {
+    this.imageStorage = storage;
+  }
+
   public void Load(ImageStorage imageStorage){
     this.imageStorage = imageStorage;
   }

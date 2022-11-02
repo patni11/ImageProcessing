@@ -49,5 +49,8 @@ public class Image {
     return this.width;
   }
 
+  public boolean equals(Image img){
+    return img.toString().equals(this.toString());
+  }
 
 }

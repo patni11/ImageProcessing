@@ -12,40 +12,37 @@ public class Greyscale implements PPMModification {
 
   public Image modifyImage(String args, Image image) {
     Image imgCopy = new Image(image);
+    int width = imgCopy.getWidth();
+    int height = imgCopy.getHeight();
+    Pixel[][] newImg = new Pixel[width][height];
 
-    for (Pixel[] rowOfPixels : imgCopy.getPixels()) {
-      for (Pixel pixel: rowOfPixels) {
-        pixel = changePixel(args,pixel);
+    for (int row = 0; row < height; row++){
+      for (int col = 0; col < width; col++) {
+        Pixel ogPixel = imgCopy.getPixels()[row][col];
+        newImg[row][col] = changePixel(args,ogPixel);
       }
     }
 
-    return imgCopy;
+
+    return new Image(height,width,newImg);
   }
 
   private Pixel changePixel(String arg, Pixel pixel){
-    Pixel p;
-    switch (arg){
-      case ("red-component"):
-        p = red(pixel);
 
-      case ("green-component"):
-        p = green(pixel);
-
-      case ("blue-component"):
-        p = blue(pixel);
-
-      case ("value-component"):
-        p = value(pixel);
-
-      case ("intensity-component"):
-        p = intensity(pixel);
-
-      case ("luma-component"):
-        p = luma(pixel);
-      default:
-        p = pixel;
+    if (arg.equals("red-component")) {
+      return red(pixel);
+    } else if (arg.equals("green-component")) {
+      return green(pixel);
+    } else if (arg.equals("blue-component")) {
+      return blue(pixel);
+    } else if (arg.equals("value-component")) {
+      return value(pixel);
+    } else if (arg.equals("intensity-component")) {
+      return intensity(pixel);
+    } else if (arg.equals("luma-component")) {
+      return luma(pixel);
     }
-    return p;
+    return pixel;
   }
 
   private Pixel red(Pixel p){
