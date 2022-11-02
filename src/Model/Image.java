@@ -35,7 +35,7 @@ public class Image {
         pixelsString.append("\n");
       }
     }
-    return "P3\n" + this.width + "\n" + this.height + "\n" + "255\n" + pixelsString;
+    return "P3\n" + this.width + " " + this.height + "\n" + "255\n" + pixelsString;
   }
 
   public Pixel[][] getPixels() {

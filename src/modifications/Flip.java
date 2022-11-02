@@ -5,10 +5,10 @@ import Model.Pixel;
 
 public class Flip implements PPMModification {
   /**
-   * flip the image horizontally.
+   * flip the image.
    *
    * @param image the original image to be flipped
-   * @return a new image that is the same as the original but flipped horizontally
+   * @return a new image that is the same as the original but flipped
    */
   public Image modifyImage(String arg, Image image) {
     int width = image.getWidth();
@@ -17,13 +17,13 @@ public class Flip implements PPMModification {
     //create a new 2d list of Pixels
     Pixel[][] newPixels = new Pixel[height][width];
     //go through all pixels in the original image
-    for (int i = 0; i < height; i++) {
-      for (int j = 0; j < width; j++) {
+    for (int r = 0; r < height; r++) {
+      for (int c = 0; c < width; c++) {
         if (arg.equals("horizontal")) {
-          newPixels[i][width - j] = originalPixels[i][j].clone();
+          newPixels[r][width - c - 1] = originalPixels[r][c].clone();
         }
         else if (arg.equals("vertical")) {
-          newPixels[height - i][j] = originalPixels[i][j].clone();
+          newPixels[height - r - 1][c] = originalPixels[r][c].clone();
         }
 
 

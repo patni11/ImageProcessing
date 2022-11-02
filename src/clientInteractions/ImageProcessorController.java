@@ -21,6 +21,6 @@ public class ImageProcessorController {
    * runs the Image Processor application, feeding user actions to the model to modify ppm files
    */
   public void run() {
-
+    
   }
 }
