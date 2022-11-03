@@ -17,6 +17,8 @@ public class Flip implements PPMModification {
     this.destName = destName;
   }
 
+  public Flip(){}
+
   /**
    * flip the image.
    *
@@ -25,7 +27,11 @@ public class Flip implements PPMModification {
   public void go() throws Exception {
 
     Image image = ModificationUtils.getImage(imgStorage,imgName);
+    this.imgStorage.addImage(destName,flipImage(image));
 
+  }
+
+  private Image flipImage(Image image){
     int width = image.getWidth();
     int height = image.getHeight();
     Pixel[][] originalPixels = image.getPixels();
@@ -42,9 +48,12 @@ public class Flip implements PPMModification {
         }
       }
     }
+    return new Image(height, width, newPixels);
+  }
 
-    this.imgStorage.addImage(destName,new Image(height, width, newPixels));
-
+  public Image modifyImage(String args, Image image){
+    this.flipType = args;
+    return flipImage(image);
   }
 }
 

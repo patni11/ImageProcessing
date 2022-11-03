@@ -109,8 +109,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testBrightenRWR30() {
-    PPMModification brighten = new Brighten();
+  public void testBrightenRWR30() throws Exception{
+    Brighten brighten = new Brighten();
     String expected = "P3\n3 3\n255\n"
             + "255 30 30\n"
             + "255 30 30\n"
@@ -126,8 +126,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testBrightenRWR200() {
-    PPMModification brighten = new Brighten();
+  public void testBrightenRWR200() throws Exception{
+    Brighten brighten = new Brighten();
     String expected = "P3\n3 3\n255\n"
             + "255 200 200\n"
             + "255 200 200\n"
@@ -143,8 +143,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testBrightenRWRneg10() {
-    PPMModification brighten = new Brighten();
+  public void testBrightenRWRneg10() throws Exception{
+    Brighten brighten = new Brighten();
     String expected = "P3\n3 3\n255\n"
             + "245 0 0\n"
             + "245 0 0\n"
@@ -160,8 +160,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testBrightenRWRneg100() {
-    PPMModification brighten = new Brighten();
+  public void testBrightenRWRneg100() throws Exception{
+    Brighten brighten = new Brighten();
     String expected = "P3\n3 3\n255\n"
             + "155 0 0\n"
             + "155 0 0\n"
@@ -179,8 +179,8 @@ public class ImageModificationTest {
 
   //greyscale tests
   @Test
-  public void testGreyscaleRWRred() {
-    PPMModification greyscale = new Greyscale();
+  public void testGreyscaleRWRred() throws Exception{
+    Greyscale greyscale = new Greyscale();
     String expected = "P3\n3 3\n255\n"
             + "255 255 255\n"
             + "255 255 255\n"
@@ -196,8 +196,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testGreyscaleRWRgreen() {
-    PPMModification greyscale = new Greyscale();
+  public void testGreyscaleRWRgreen() throws Exception{
+    Greyscale greyscale = new Greyscale();
     String expected = "P3\n3 3\n255\n"
             + "0 0 0\n"
             + "0 0 0\n"
@@ -213,8 +213,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testGreyscaleRWRblue() {
-    PPMModification greyscale = new Greyscale();
+  public void testGreyscaleRWRblue() throws Exception{
+    Greyscale greyscale = new Greyscale();
     String expected = "P3\n3 3\n255\n"
             + "0 0 0\n"
             + "0 0 0\n"
@@ -230,8 +230,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testGreyscaleRWRvalue() {
-    PPMModification greyscale = new Greyscale();
+  public void testGreyscaleRWRvalue() throws Exception{
+    Greyscale greyscale = new Greyscale();
     String expected = "P3\n3 3\n255\n"
             + "255 255 255\n"
             + "255 255 255\n"
@@ -247,8 +247,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testGreyscaleRWRintensity() {
-    PPMModification greyscale = new Greyscale();
+  public void testGreyscaleRWRintensity()throws Exception {
+    Greyscale greyscale = new Greyscale();
     String expected = "P3\n3 3\n255\n"
             + "85 85 85\n"
             + "85 85 85\n"
@@ -264,8 +264,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testGreyscaleRWRluma() {
-    PPMModification greyscale = new Greyscale();
+  public void testGreyscaleRWRluma() throws Exception{
+    Greyscale greyscale = new Greyscale();
     String expected = "P3\n3 3\n255\n"
             + "54 54 54\n"
             + "54 54 54\n"
@@ -281,8 +281,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testGreyscaleRGBred() {
-    PPMModification greyscale = new Greyscale();
+  public void testGreyscaleRGBred() throws Exception{
+    Greyscale greyscale = new Greyscale();
     String expected = "P3\n3 3\n255\n"
             + "255 255 255\n"
             + "0 0 0\n"
@@ -298,8 +298,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testGreyscaleRGBgreen() {
-    PPMModification greyscale = new Greyscale();
+  public void testGreyscaleRGBgreen() throws Exception{
+    Greyscale greyscale = new Greyscale();
     String expected = "P3\n3 3\n255\n"
             + "0 0 0\n"
             + "255 255 255\n"
@@ -315,8 +315,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testGreyscaleRGBblue() {
-    PPMModification greyscale = new Greyscale();
+  public void testGreyscaleRGBblue() throws Exception{
+    Greyscale greyscale = new Greyscale();
     String expected = "P3\n3 3\n255\n"
             + "0 0 0\n"
             + "0 0 0\n"
@@ -334,8 +334,8 @@ public class ImageModificationTest {
 
   //flip methods
   @Test
-  public void testFlipRGBhorizontal() {
-    PPMModification flip = new Flip();
+  public void testFlipRGBhorizontal() throws Exception{
+    Flip flip = new Flip();
     String expected = "P3\n3 3\n255\n"
             + "0 0 255\n"
             + "0 255 0\n"
@@ -353,8 +353,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testFlipRGBvertical() {
-    PPMModification flip = new Flip();
+  public void testFlipRGBvertical() throws Exception{
+    Flip flip = new Flip();
     String expected = "P3\n3 3\n255\n"
             + "255 0 0\n"
             + "0 255 0\n"
@@ -370,8 +370,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testFlipRWRhorizontal() {
-    PPMModification flip = new Flip();
+  public void testFlipRWRhorizontal() throws Exception{
+    Flip flip = new Flip();
     String expected = "P3\n3 3\n255\n"
             + "255 0 0\n"
             + "255 0 0\n"
@@ -387,8 +387,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testFlipRGBVhorizontal() {
-    PPMModification flip = new Flip();
+  public void testFlipRGBVhorizontal() throws Exception{
+    Flip flip = new Flip();
     String expected = "P3\n3 3\n255\n"
             + "255 0 0\n"
             + "255 0 0\n"
@@ -404,8 +404,8 @@ public class ImageModificationTest {
   }
 
   @Test
-  public void testFlipRGBVvertical() {
-    PPMModification flip = new Flip();
+  public void testFlipRGBVvertical() throws Exception{
+    Flip flip = new Flip();
     String expected = "P3\n3 3\n255\n"
             + "0 0 255\n"
             + "0 0 255\n"

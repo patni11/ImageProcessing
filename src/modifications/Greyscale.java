@@ -23,9 +23,14 @@ public class Greyscale implements PPMModification {
     this.destName = destName;
   }
 
+  public Greyscale(){}
+
   public void go() throws Exception {
     Image image = ModificationUtils.getImage(imgStorage, this.imgName);
+    this.imgStorage.addImage(destName,greyScaleImage(image));
+  }
 
+  private Image greyScaleImage(Image image){
     int width = image.getWidth();
     int height = image.getHeight();
     Pixel[][] newImg = new Pixel[height][width];
@@ -36,8 +41,7 @@ public class Greyscale implements PPMModification {
         newImg[row][col] = changePixel(type,ogPixel);
       }
     }
-
-    this.imgStorage.addImage(destName,new Image(height,width,newImg));
+    return new Image(height,width,newImg);
   }
 
   private Pixel changePixel(String arg, Pixel pixel){
@@ -82,6 +86,11 @@ public class Greyscale implements PPMModification {
   private Pixel luma(Pixel p){
     int val = (int) Math.round(0.2126*(p.getR()) + 0.7152*(p.getG()) + 0.0722*(p.getB()));
     return new Pixel(val,val,val);
+  }
+
+  public Image modifyImage(String arg, Image image){
+    this.type = arg;
+    return greyScaleImage(image);
   }
 
 }
