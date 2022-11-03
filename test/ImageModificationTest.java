@@ -34,7 +34,7 @@ public class ImageModificationTest {
 
     //load images
     storage = new ImageStorage();
-    PPMModification load = new Load(storage);
+    Load load = new Load(storage);
     load.modifyImage("redWhiteRed",redWhiteRed);
     load.modifyImage("redGreenBlue",redGreenBlue);
     load.modifyImage("random5x5",random5x5);
@@ -92,8 +92,8 @@ public class ImageModificationTest {
 
   //brighten tests
   @Test
-  public void testBrightenRWR10() {
-    PPMModification brighten = new Brighten();
+  public void testBrightenRWR10() throws Exception {
+    Brighten brighten = new Brighten();
     String expected = "P3\n3 3\n255\n"
             + "255 10 10\n"
             + "255 10 10\n"

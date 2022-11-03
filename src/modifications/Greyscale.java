@@ -1,6 +1,7 @@
 package modifications;
 
 import Model.Image;
+import Model.ImageStorage;
 import Model.Pixel;
 
 
@@ -10,21 +11,33 @@ import Model.Pixel;
  */
 public class Greyscale implements PPMModification {
 
-  public Image modifyImage(String args, Image image) {
-    Image imgCopy = new Image(image);
-    int width = imgCopy.getWidth();
-    int height = imgCopy.getHeight();
+  private ImageStorage imgStorage;
+  private String type;
+  private String imgName;
+  private String destName;
+
+  public Greyscale(ImageStorage imgStorage, String type, String imgName, String destName) {
+    this.imgStorage = imgStorage;
+    this.type = type;
+    this.imgName = imgName;
+    this.destName = destName;
+  }
+
+  public void go() throws Exception {
+    Image image = ModificationUtils.getImage(imgStorage, this.imgName);
+
+    int width = image.getWidth();
+    int height = image.getHeight();
     Pixel[][] newImg = new Pixel[height][width];
 
     for (int row = 0; row < height; row++){
       for (int col = 0; col < width; col++) {
-        Pixel ogPixel = imgCopy.getPixels()[row][col];
-        newImg[row][col] = changePixel(args,ogPixel);
+        Pixel ogPixel = image.getPixels()[row][col];
+        newImg[row][col] = changePixel(type,ogPixel);
       }
     }
 
-
-    return new Image(height,width,newImg);
+    this.imgStorage.addImage(destName,new Image(height,width,newImg));
   }
 
   private Pixel changePixel(String arg, Pixel pixel){

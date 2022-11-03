@@ -14,7 +14,10 @@ public class ImageStorage {
     this.images.put(name,image);
   }
 
-  public Image getImage(String name){
+  public Image getImage(String name) throws Exception {
+    if (this.images.get(name) == null) {
+      throw new Exception("Image not in storage");
+    }
     return this.images.get(name);
   }
 }

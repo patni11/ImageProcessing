@@ -1,6 +1,7 @@
 package modifications;
 
 import Model.Image;
+import Model.ImageStorage;
 import Model.Pixel;
 
 /**
@@ -9,21 +10,27 @@ import Model.Pixel;
 public class Brighten implements PPMModification {
 
   private int increment;
-  public Brighten(int increment){
+  private String imgName;
+  private String destName;
+  private ImageStorage imgStorage;
+  public Brighten(ImageStorage imgStorage, int increment, String imgName, String destName){
     this.increment = increment;
+    this.imgStorage = imgStorage;
+    this.imgName = imgName;
+    this.destName = destName;
   }
+
   public Brighten(){
 
   }
 
-  public Image modifyImage(String arg, Image image) {
 
-    try{
-      this.increment = Integer.parseInt(arg);
-    }catch (Error e){
+  public void go() throws Exception{
+    Image image = ModificationUtils.getImage(imgStorage, this.imgName);
+    this.imgStorage.addImage(destName,brightenImage(image));
+  }
 
-    }
-
+  private Image brightenImage(Image image){
     int height = image.getHeight();
     int width = image.getWidth();
     Pixel[][] pixels = image.getPixels();
@@ -39,7 +46,6 @@ public class Brighten implements PPMModification {
         newPixels[r][c] = new Pixel(newR,newG,newB);
       }
     }
-
     return new Image(height,width,newPixels);
   }
 
@@ -54,7 +60,11 @@ public class Brighten implements PPMModification {
     return (val + this.increment);
   }
 
-  public void setIncrement(int increment){
-    this.increment = increment;
+  public Image modifyImage(String arg, Image image) {
+
+    this.increment = Integer.parseInt(arg);
+    return brightenImage(image);
   }
+
+
 }

@@ -23,22 +23,22 @@ import modifications.Save;
  */
 public class main {
 
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) {
     ImageStorage imgStorage = new ImageStorage();
     Scanner sc = new Scanner(InputStream.nullInputStream());
-    Map<String, BiFunction<String,Image, PPMModification>> knownCommands = new HashMap<>();
+    Map<String, Function<Scanner, PPMModification>> knownCommands = new HashMap<>();
 
-    knownCommands.put("load",(String name, Image img) -> {return new Load(imgStorage);});
-    knownCommands.put("brighten",(String name, Image img) -> {return new Brighten();});
-    knownCommands.put("vertical-flip",(String name, Image img) -> {return new Flip();});
-    knownCommands.put("horizontal-flip",(String name, Image img) -> {return new Flip();});
-    knownCommands.put("value-component",(String name, Image img) -> {return new Greyscale();});
-    knownCommands.put("red-component",(String name, Image img) -> {return new Greyscale();});
-    knownCommands.put("blue-component",(String name, Image img) -> {return new Greyscale();});
-    knownCommands.put("green-component",(String name, Image img) -> {return new Greyscale();});
-    knownCommands.put("luma-component",(String name, Image img) -> {return new Greyscale();});
-    knownCommands.put("intensity-component",(String name, Image img) -> {return new Greyscale();});
-    knownCommands.put("save",(String name, Image img) -> {return new Save();});
+    knownCommands.put("load",(Scanner s) -> {return new Load(imgStorage, s.next(), s.next());});
+    knownCommands.put("brighten",(Scanner s) -> {return new Brighten(imgStorage,s.nextInt(),s.next(),s.next());});
+    knownCommands.put("vertical-flip",(Scanner s) -> {return new Flip(imgStorage,"vertical",sc.next(), sc.next());});
+    knownCommands.put("horizontal-flip",(Scanner s) -> {return new Flip(imgStorage,"horizontal", sc.next(), sc.next());});
+    knownCommands.put("value-component",(Scanner s) -> {return new Greyscale(imgStorage,"value-component",sc.next(),sc.next());});
+    knownCommands.put("red-component",(Scanner s) -> {return new Greyscale(imgStorage,"red-component",sc.next(),sc.next());});
+    knownCommands.put("green-component",(Scanner s) -> {return new Greyscale(imgStorage,"green-component",sc.next(),sc.next());});
+    knownCommands.put("blue-component",(Scanner s) -> {return new Greyscale(imgStorage,"blue-component",sc.next(),sc.next());});
+    knownCommands.put("luma-component",(Scanner s) -> {return new Greyscale(imgStorage,"luma-component",sc.next(),sc.next());});
+    knownCommands.put("intensity-component",(Scanner s) -> {return new Greyscale(imgStorage,"intensity-component",sc.next(),sc.next());});
+    knownCommands.put("save",(Scanner s) -> {return new Save(imgStorage,sc.next(),sc.next());});
 
     Image image = null;
     String name = null;
@@ -48,7 +48,7 @@ public class main {
       if (in.equalsIgnoreCase("q") || in.equalsIgnoreCase("quit"))
         return;
 
-      BiFunction<String,Image, PPMModification> cmd = knownCommands.getOrDefault(in, null);
+      Function<Scanner, PPMModification> cmd = knownCommands.getOrDefault(in, null);
 
       if (cmd == null){
         throw new IllegalArgumentException("Invalid Command");
@@ -58,7 +58,7 @@ public class main {
             int intensity = sc.nextInt();
             String imgName = sc.next();
             String destName = sc.next();
-            PPMModification c = cmd.apply(Integer.toString(intensity), imgStorage.getImage(imgName));
+
 
 
           }catch (Error e){
