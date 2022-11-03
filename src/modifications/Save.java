@@ -1,19 +1,28 @@
 package modifications;
 
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
 
-import Model.Image;
-import Model.ImageStorage;
+import model.Image;
+import model.ImageStorage;
 
-public class Save implements PPMModification{
+/**
+ * Saves an image to a ppm file.
+ */
+public class Save implements PPMModification {
 
-  private ImageStorage imgStorage;
-  private String fileName;
-  private String imgName;
+  private final ImageStorage imgStorage;
+  private final String fileName;
+  private final String imgName;
 
+  /**
+   * constructor to create save class that can save images to ppm files.
+   *
+   * @param imgStorage takes in storage to get the image from.
+   * @param fileName   saves as this file name.
+   * @param imgName    name of the image you want to save.
+   */
   public Save(ImageStorage imgStorage, String fileName, String imgName) {
     this.imgStorage = imgStorage;
     this.fileName = fileName;
@@ -21,8 +30,8 @@ public class Save implements PPMModification{
   }
 
   @Override
-  public void go() throws Exception {
-    Image image = ModificationUtils.getImage(imgStorage,imgName);
+  public void runFunction() throws Exception {
+    Image image = ModificationUtils.getImage(imgStorage, imgName);
 
     String imageString = image.toString();
     StringReader sc = new StringReader(imageString);
@@ -35,16 +44,16 @@ public class Save implements PPMModification{
       System.out.print(e);
     }
 
-    int k=0;
-    if (writer != null){
+    int k = 0;
+    if (writer != null) {
 
-      try{
-        while((k=sc.read())!=-1){
-          writer.write((char)k);
+      try {
+        while ((k = sc.read()) != -1) {
+          writer.write((char) k);
         }
         writer.close();
-      }catch (IOException e){
-        System.out.println(e.toString());
+      } catch (IOException e) {
+        System.out.println(e);
       }
 
     }
