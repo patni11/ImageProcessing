@@ -33,7 +33,6 @@ public class Save implements PPMModification{
       }catch (IOException e){
         System.out.println(e.toString());
       }
-      System.out.println("Done Writing");
 
     }
     return image;
