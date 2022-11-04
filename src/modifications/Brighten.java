@@ -38,11 +38,17 @@ public class Brighten implements PPMModification {
   }
 
 
+  @Override
   public void runFunction() throws Exception {
     Image image = ModificationUtils.getImage(imgStorage, this.imgName);
     this.imgStorage.addImage(destName, brightenImage(image));
   }
 
+  /**
+   * brightens an image.
+   * @param image the image to be modified
+   * @return the image with each individual pixelk modified based on the provided argument
+   */
   private Image brightenImage(Image image) {
     int height = image.getHeight();
     int width = image.getWidth();
@@ -62,6 +68,11 @@ public class Brighten implements PPMModification {
     return new Image(height, width, newPixels);
   }
 
+  /**
+   * returns the correct value to modify the pixel RGB value by with a min and max of 0 adn 255.
+   * @param val the R, G, or B value to change
+   * @return the modified R, G, or B value
+   */
   private int getVal(int val) {
     if ((val + this.increment) >= 255) {
       return 255;
@@ -74,7 +85,7 @@ public class Brighten implements PPMModification {
   }
 
   /**
-   * This applies the brigten function. Method is for testing.
+   * This applies the brighten function. Method is for testing.
    *
    * @param arg   takes in increment as string
    * @param image takes in an image to brighten

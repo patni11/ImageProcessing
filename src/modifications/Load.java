@@ -10,7 +10,6 @@ import Model.ImageStorage;
  * Loads an image into storage provided a locaiton to image file in directory.
  */
 public class Load implements PPMModification {
-
   private final ImageStorage imgStorage;
   String fileName;
   String destName;
