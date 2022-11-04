@@ -1,0 +1,27 @@
+load testImages/redWhiteRed.ppm rwr
+brighten -50 rwr Drwr
+load testImages/redGreenBlue.ppm rgb
+brighten -100 rgb Drgb
+brighten 30 rgb rgbB30
+horizontal-flip Drgb hFlipDrgb
+load testImages/redGreenBlueVertical.ppm rgbv
+vertical-flip rgbv Vrgbv
+load testImages/random5x5.ppm random
+brighten 45 random Brandom
+brighten -50 random Drandom
+red-component rgb gRgb
+blue-component Drandom DGreyrandom
+green-component rwr Grwr
+value-component Drgb DVrgb
+intensity-component random Grandom
+luma-component Vrgbv rgbB30
+horizontal-flip rgbB30 rgbV30
+save testImages/Drwr.ppm Drwr
+save testImages/Drgb.ppm Drgb
+save testImages/rgbB30.ppm rgbB30
+save testImages/Vrgbv.ppm Vrgbv
+save testImages/Brandom.ppm Brandom
+save testImages/Drandom.ppm Drandom
+save testImages/gRgb.ppm gRgb
+save testImages/DGreyrandom.ppm DGreyrandom
+save testImages/rgbV30.ppm rgbV30
