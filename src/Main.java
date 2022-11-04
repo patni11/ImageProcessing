@@ -3,8 +3,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.function.Function;
 
-import model.Image;
-import model.ImageStorage;
+import Model.Image;
+import Model.ImageStorage;
 import modifications.Brighten;
 import modifications.Flip;
 import modifications.Greyscale;
@@ -73,17 +73,19 @@ public class Main {
 
     Image image = null;
     String name = null;
+    Function<Scanner, PPMModification> cmd;
 
     while (sc.hasNext()) {
       String in = sc.next();
       if (in.equalsIgnoreCase("q") || in.equalsIgnoreCase("quit")) {
+        System.out.print("program terminated");
         return;
       }
 
-      Function<Scanner, PPMModification> cmd = knownCommands.getOrDefault(in, null);
+      cmd = knownCommands.getOrDefault(in, null);
 
       if (cmd == null) {
-        throw new IllegalArgumentException("Invalid Command");
+        System.out.print("Invalid Input");
 
       } else {
         PPMModification c = cmd.apply(sc);

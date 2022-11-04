@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 /**
  * A class to represent a pixel with a red value, green value, and blue value.
@@ -66,26 +66,56 @@ public class Pixel {
     return pixelList;
   }
 
+  /**
+   * sets the r value of this pixel
+   *
+   * @param r the red value of this pixel
+   */
   public void setR(int r) {
     this.r = r;
   }
 
+  /**
+   * sets the g value of this pixel
+   *
+   * @param g the green value of this pixel
+   */
   public void setG(int g) {
     this.g = g;
   }
 
+  /**
+   * sets the b value of this pixel
+   *
+   * @param b the blue value of this pixel
+   */
   public void setB(int b) {
     this.b = b;
   }
 
+  /**
+   * retrieves the r value of this pixel
+   *
+   * @return the red value for this pixel
+   */
   public int getR() {
     return this.r;
   }
 
+  /**
+   * retrieves the g value of this pixel
+   *
+   * @return the green value for this pixel
+   */
   public int getG() {
     return this.g;
   }
 
+  /**
+   * retrieves the b value of this pixel
+   *
+   * @return the blue value for this pixel
+   */
   public int getB() {
     return this.b;
   }
