@@ -4,8 +4,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import model.Image;
-import model.Pixel;
+import Model.Image;
+import Model.Image;
+import Model.Pixel;
 
 
 /**

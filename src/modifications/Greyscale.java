@@ -1,20 +1,18 @@
 package modifications;
 
-import model.Image;
-import model.ImageStorage;
-import model.Pixel;
+import Model.Image;
+import Model.ImageStorage;
+import Model.Pixel;
 
 
 /**
  * a function object to convert a .ppm image to greyscale (set rgb to average of rgb values?).
  */
 public class Greyscale implements PPMModification {
-
   private ImageStorage imgStorage;
   private String type;
   private String imgName;
   private String destName;
-
 
   /**
    * Makes an image greyscale based on the componet that you want to greyscale.
@@ -38,11 +36,17 @@ public class Greyscale implements PPMModification {
     // this is for testing.
   }
 
+  @Override
   public void runFunction() throws Exception {
     Image image = ModificationUtils.getImage(imgStorage, this.imgName);
     this.imgStorage.addImage(destName, greyScaleImage(image));
   }
 
+  /**
+   * greyscale the image with respect to a component based on the argument provided.
+   * @param image the image to be modified
+   * @return the greyscaled image
+   */
   private Image greyScaleImage(Image image) {
     int width = image.getWidth();
     int height = image.getHeight();
@@ -57,6 +61,12 @@ public class Greyscale implements PPMModification {
     return new Image(height, width, newImg);
   }
 
+  /**
+   * greyscales an individual pixel.
+   * @param arg the provided desired component to greyscale by
+   * @param pixel the pixel to modify
+   * @return the modified pixel
+   */
   private Pixel changePixel(String arg, Pixel pixel) {
 
     if (arg.equals("red-component")) {
@@ -75,28 +85,61 @@ public class Greyscale implements PPMModification {
     return pixel;
   }
 
+  /**
+   * greyscale based on the red component, overwriting g and b values to be equal to r.
+   * @param p the pixel to modify
+   * @return the modified pixel
+   */
   private Pixel red(Pixel p) {
     return new Pixel(p.getR(), p.getR(), p.getR());
   }
 
+  /**
+   * greyscale based on the green component, overwriting r and b values to be equal to g.
+   * @param p the pixel to modify
+   * @return the modified pixel
+   */
   private Pixel green(Pixel p) {
     return new Pixel(p.getG(), p.getG(), p.getG());
   }
 
+  /**
+   * greyscale based on the blue component, overwriting r and g values to be equal to b.
+   * @param p the pixel to modify
+   * @return the modified pixel
+   */
   private Pixel blue(Pixel p) {
     return new Pixel(p.getB(), p.getB(), p.getB());
   }
 
+  /**
+   * greyscale based on the red component, overwriting r, g and b values
+   * to be equal to the max of those values.
+   * @param p the pixel to modify
+   * @return the modified pixel
+   */
   private Pixel value(Pixel p) {
     int val = Math.max(Math.max(p.getR(), p.getG()), p.getB());
     return new Pixel(val, val, val);
   }
 
+  /**
+   * greyscale based on the red component, overwriting r, g and b values
+   * to be equal to the average of those values.
+   * @param p the pixel to modify
+   * @return the modified pixel
+   */
   private Pixel intensity(Pixel p) {
     int val = (p.getR() + p.getG() + p.getB()) / 3;
     return new Pixel(val, val, val);
   }
 
+  /**
+   * greyscale based on the red component, overwriting r, g and b values
+   * to be equal to the of the luma formula using those values.
+   * @param p the pixel to modify
+   * @return the modified pixel
+   */
   private Pixel luma(Pixel p) {
     int val = (int) Math.round(0.2126 * (p.getR()) + 0.7152 * (p.getG()) + 0.0722 * (p.getB()));
     return new Pixel(val, val, val);

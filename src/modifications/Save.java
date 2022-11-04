@@ -4,8 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
 
-import model.Image;
-import model.ImageStorage;
+import Model.Image;
+import Model.ImageStorage;
 
 /**
  * Saves an image to a ppm file.

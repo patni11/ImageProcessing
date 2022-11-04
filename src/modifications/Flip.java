@@ -1,8 +1,8 @@
 package modifications;
 
-import model.Image;
-import model.ImageStorage;
-import model.Pixel;
+import Model.Image;
+import Model.ImageStorage;
+import Model.Pixel;
 
 /**
  * Flips class to flip a given image vertically or horizontally.
@@ -37,11 +37,7 @@ public class Flip implements PPMModification {
     // this is for testing.
   }
 
-  /**
-   * flips a image provided in the construcotr based on flip type.
-   *
-   * @throws Exception if the image does not exist.
-   */
+  @Override
   public void runFunction() throws Exception {
 
     Image image = ModificationUtils.getImage(imgStorage, imgName);
@@ -49,6 +45,11 @@ public class Flip implements PPMModification {
 
   }
 
+  /**
+   * Flips an image.
+   * @param image the image to be flipped
+   * @return the image flipped either vertically or horizontally base on the argument provided
+   */
   private Image flipImage(Image image) {
     int width = image.getWidth();
     int height = image.getHeight();
