@@ -3,10 +3,9 @@ import org.junit.Test;
 
 import java.io.FileNotFoundException;
 
-import Model.ImageStorage;
 import interactions.ImageUtil;
-import Model.Image;
-import Model.ImageStorage;
+import model.Image;
+import model.ImageStorage;
 import modifications.Brighten;
 import modifications.Flip;
 import modifications.Greyscale;

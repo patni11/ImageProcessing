@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 /**
  * A class to represent a pixel with a red value, green value, and blue value.

@@ -1,7 +1,8 @@
 package modifications;
 
-import Model.Image;
-import Model.ImageStorage;
+import model.Image;
+import model.ImageStorage;
+import model.Pixel;
 
 /**
  * Class to help with modifications.

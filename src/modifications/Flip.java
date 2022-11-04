@@ -1,8 +1,8 @@
 package modifications;
 
-import Model.Image;
-import Model.ImageStorage;
-import Model.Pixel;
+import model.Image;
+import model.ImageStorage;
+import model.Pixel;
 
 /**
  * Flips class to flip a given image vertically or horizontally.
