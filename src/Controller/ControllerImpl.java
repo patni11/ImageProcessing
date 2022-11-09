@@ -13,6 +13,7 @@ import modifications.Greyscale;
 import modifications.Load;
 import modifications.PPMModification;
 import modifications.Save;
+import modifications.SharpenFilter;
 
 /**
  * Controller impleneation for the image processing controller.
@@ -83,6 +84,10 @@ public class ControllerImpl implements ImageProcessingController {
 
     knownCommands.put("blur", (Scanner s) -> {
       return new BlurFilter(imgStorage, sc.next(), sc.next());
+    });
+
+    knownCommands.put("sharpen", (Scanner s) -> {
+      return new SharpenFilter(imgStorage, sc.next(), sc.next());
     });
 
   }

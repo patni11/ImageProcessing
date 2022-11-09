@@ -34,8 +34,8 @@ public abstract class Filter implements PPMModification {
     Pixel[][] pixels = img.getPixels();
     Pixel[][] newImg = new Pixel[height][width];
 
-    for (int row = 0;  row <= height;  row++){
-      for (int col = 0; col <= width; col++){
+    for (int row = 0;  row < height;  row++){
+      for (int col = 0; col < width; col++){
         newImg[row][col] = getNewPixel(row,col,pixels);
       }
     }
@@ -44,19 +44,20 @@ public abstract class Filter implements PPMModification {
 
   }
 
-  private Pixel getNewPixel(int row, int col,Pixel[][] pixels ){
+  private Pixel getNewPixel(int row, int col, Pixel[][] pixels ){
     int[][] rChannel = new int[this.kernel.getDimension()][this.kernel.getDimension()];
     int[][] gChannel = new int[this.kernel.getDimension()][this.kernel.getDimension()];
     int[][] bChannel = new int[this.kernel.getDimension()][this.kernel.getDimension()];
-
     int imgKernelRow = 0;
     int imgKernelCol = 0;
 
-    for (int i = row - (this.kernel.getDimension()/2) ; i < row +(this.kernel.getDimension()/2); i++ ){
-      for (int j = col - (this.kernel.getDimension()/2) ; j < col +(this.kernel.getDimension()/2); j++ ){
+    for (int i = row - (this.kernel.getDimension()/2) ; i <= row +(this.kernel.getDimension()/2); i++ ){
+      for (int j = col - (this.kernel.getDimension()/2) ; j <= col +(this.kernel.getDimension()/2); j++ ){
+
         Pixel currentPixel;
+
         try{
-          currentPixel = pixels[row][col];
+          currentPixel = pixels[i][j];
         }catch (ArrayIndexOutOfBoundsException e){
           currentPixel = new Pixel(0,0,0);
         }
@@ -80,9 +81,9 @@ public abstract class Filter implements PPMModification {
     for (int row = 0; row <= this.kernel.getDimension() - 1; row ++){
       for (int col = 0; col <= this.kernel.getDimension() - 1; col ++){
         int calc = (int) (channel[row][col] * kernel[row][col]);
-        val += ImageUtil.clamp(calc);
+        val += calc;
       }
     }
-    return val;
+    return ImageUtil.clamp(val);
   }
 }
