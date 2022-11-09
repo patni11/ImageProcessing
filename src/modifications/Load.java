@@ -3,8 +3,8 @@ package modifications;
 import java.io.FileNotFoundException;
 
 import interactions.ImageUtil;
-import Model.Image;
-import Model.ImageStorage;
+import model.Image;
+import model.ImageStorage;
 
 /**
  * Loads an image into storage provided a locaiton to image file in directory.

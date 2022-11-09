@@ -1,6 +1,5 @@
-package Model;
+package model;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
