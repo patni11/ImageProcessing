@@ -96,5 +96,21 @@ public class ImageUtil {
   }
 
 
+  /**
+   * returns the correct value to modify the pixel RGB value by with a min and max of 0 adn 255.
+   * @param val the R, G, or B value to change
+   * @return the modified R, G, or B value
+   */
+  public static int clamp(int val) {
+    if (val >= 255) {
+      return 255;
+    }
+
+    if (val<= 0) {
+      return 0;
+    }
+    return val;
+  }
+
 }
 

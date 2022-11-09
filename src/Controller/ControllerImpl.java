@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.function.Function;
 
 import model.ImageStorage;
+import modifications.BlurFilter;
 import modifications.Brighten;
 import modifications.Flip;
 import modifications.Greyscale;
@@ -78,6 +79,10 @@ public class ControllerImpl implements ImageProcessingController {
 
     knownCommands.put("save", (Scanner s) -> {
       return new Save(imgStorage, sc.next(), sc.next());
+    });
+
+    knownCommands.put("blur", (Scanner s) -> {
+      return new BlurFilter(imgStorage, sc.next(), sc.next());
     });
 
   }

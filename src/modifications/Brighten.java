@@ -1,5 +1,6 @@
 package modifications;
 
+import interactions.ImageUtil;
 import model.Image;
 import model.ImageStorage;
 import model.Pixel;
@@ -58,9 +59,9 @@ public class Brighten implements PPMModification {
 
     for (int r = 0; r < height; r++) {
       for (int c = 0; c < width; c++) {
-        int newR = getVal(pixels[r][c].getR());
-        int newG = getVal(pixels[r][c].getG());
-        int newB = getVal(pixels[r][c].getB());
+        int newR = ImageUtil.clamp(pixels[r][c].getR() + increment);
+        int newG = ImageUtil.clamp(pixels[r][c].getG() + increment);
+        int newB = ImageUtil.clamp(pixels[r][c].getB() + increment);
 
         newPixels[r][c] = new Pixel(newR, newG, newB);
       }
@@ -68,21 +69,6 @@ public class Brighten implements PPMModification {
     return new Image(height, width, newPixels);
   }
 
-  /**
-   * returns the correct value to modify the pixel RGB value by with a min and max of 0 adn 255.
-   * @param val the R, G, or B value to change
-   * @return the modified R, G, or B value
-   */
-  private int getVal(int val) {
-    if ((val + this.increment) >= 255) {
-      return 255;
-    }
-
-    if ((val + this.increment) <= 0) {
-      return 0;
-    }
-    return (val + this.increment);
-  }
 
   /**
    * This applies the brighten function. Method is for testing.
