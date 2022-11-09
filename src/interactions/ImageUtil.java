@@ -1,8 +1,14 @@
 package interactions;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
+
+import javax.imageio.ImageIO;
 
 import model.Image;
 import model.Image;
@@ -62,6 +68,33 @@ public class ImageUtil {
 
     return new Image(height, width, pixels);
   }
+
+  public static Image readNormalImage(String filename) throws Exception {
+    try{
+      BufferedImage image = ImageIO.read(new File(filename));
+      return parseImage(image);
+    }catch (IOException e){
+      throw new Exception(String.valueOf(e));
+    }
+
+  }
+
+  private static model.Image parseImage(BufferedImage image) {
+    int width = image.getWidth();
+    int height = image.getHeight();
+    Pixel[][] result = new Pixel[height][width];
+
+    for (int row = 0; row < height; row++) {
+      for (int col = 0; col < width; col++) {
+        int dataBuffer = image.getRGB(col, row);
+        Color c = new Color(dataBuffer);
+        result[row][col] = new Pixel(c.getRed(),c.getGreen(),c.getBlue());
+      }
+    }
+
+    return new Image(height,width,result);
+  }
+
 
 }
 

@@ -79,6 +79,7 @@ public class ControllerImpl implements ImageProcessingController {
     knownCommands.put("save", (Scanner s) -> {
       return new Save(imgStorage, sc.next(), sc.next());
     });
+
   }
 
   @Override
