@@ -1,0 +1,7 @@
+load download.jpeg dog
+sharpen dog sdog
+sharpen sdog ssdog
+blur dog bdog
+blur bdog bbdog
+save bbdog.jpeg bbdog
+save ssdog.jpeg ssdog

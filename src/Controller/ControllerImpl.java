@@ -12,6 +12,7 @@ import modifications.Flip;
 import modifications.Greyscale;
 import modifications.Load;
 import modifications.PPMModification;
+import modifications.RunFile;
 import modifications.Save;
 import modifications.Filters.SharpenFilter;
 import modifications.Transformations.GreyscaleTransform;
@@ -98,6 +99,10 @@ public class ControllerImpl implements ImageProcessingController {
 
     knownCommands.put("sepia", (Scanner s) -> {
       return new Sepia(imgStorage, sc.next(), sc.next());
+    });
+
+    knownCommands.put("file", (Scanner s) -> {
+      return new RunFile(imgStorage, sc.next());
     });
 
   }
