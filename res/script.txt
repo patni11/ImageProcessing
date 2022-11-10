@@ -1,0 +1,15 @@
+load download.jpeg dog
+sharpen dog sdog
+sharpen sdog ssdog
+blur dog bdog
+blur bdog bbdog
+save res/bbdog.jpeg bbdog
+save res/ssdog.jpeg ssdog
+greyscale ssdog gssdog
+greyscale dog gdog
+sepia ssdog ssSepdog
+sepia greyscale gSepdog
+save res/gssdog.jpeg gssdog
+save res/gdog.jpeg gdog
+save res/ssSepdog.jpeg ssSepdog
+save res/gSepdog.jpeg gSepdog
