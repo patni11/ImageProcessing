@@ -2,9 +2,9 @@ package model.TransformModels;
 
 import model.KernalModels.Kernel;
 
-public class GreyscaleTransform extends Kernel {
+public class GreyscaleTransformModel extends Kernel {
 
-  public GreyscaleTransform() {
+  public GreyscaleTransformModel() {
     super(3);
     for(int i = 0; i < getDimension(); i++) {
 

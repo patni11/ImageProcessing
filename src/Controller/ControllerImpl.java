@@ -6,14 +6,16 @@ import java.util.Scanner;
 import java.util.function.Function;
 
 import model.ImageStorage;
-import modifications.BlurFilter;
+import modifications.Filters.BlurFilter;
 import modifications.Brighten;
 import modifications.Flip;
 import modifications.Greyscale;
 import modifications.Load;
 import modifications.PPMModification;
 import modifications.Save;
-import modifications.SharpenFilter;
+import modifications.Filters.SharpenFilter;
+import modifications.Transformations.GreyscaleTransform;
+import modifications.Transformations.Sepia;
 
 /**
  * Controller impleneation for the image processing controller.
@@ -78,6 +80,10 @@ public class ControllerImpl implements ImageProcessingController {
       return new Greyscale(imgStorage, "intensity-component", sc.next(), sc.next());
     });
 
+    knownCommands.put("greyscale", (Scanner s) -> {
+      return new GreyscaleTransform(imgStorage, sc.next(), sc.next());
+    });
+
     knownCommands.put("save", (Scanner s) -> {
       return new Save(imgStorage, sc.next(), sc.next());
     });
@@ -88,6 +94,10 @@ public class ControllerImpl implements ImageProcessingController {
 
     knownCommands.put("sharpen", (Scanner s) -> {
       return new SharpenFilter(imgStorage, sc.next(), sc.next());
+    });
+
+    knownCommands.put("sepia", (Scanner s) -> {
+      return new Sepia(imgStorage, sc.next(), sc.next());
     });
 
   }

@@ -1,4 +1,4 @@
-package modifications;
+package modifications.Filters;
 
 import model.ImageStorage;
 import model.KernalModels.BlurKernel;

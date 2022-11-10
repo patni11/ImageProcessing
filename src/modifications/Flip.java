@@ -7,7 +7,7 @@ import model.Pixel;
 /**
  * Flips class to flip a given image vertically or horizontally.
  */
-public class Flip implements PPMModification {
+public class Flip implements PPMModification  {
   private String flipType;
   private String imgName;
   private String destName;
@@ -34,6 +34,7 @@ public class Flip implements PPMModification {
    * this is for testing.
    */
   public Flip() {
+    super();
     // this is for testing.
   }
 
@@ -41,7 +42,7 @@ public class Flip implements PPMModification {
   public void runFunction() throws Exception {
 
     Image image = ModificationUtils.getImage(imgStorage, imgName);
-    this.imgStorage.addImage(destName, flipImage(image));
+    this.imgStorage.addImage(destName, applyFunction(image));
 
   }
 
@@ -50,7 +51,8 @@ public class Flip implements PPMModification {
    * @param image the image to be flipped
    * @return the image flipped either vertically or horizontally base on the argument provided
    */
-  private Image flipImage(Image image) {
+
+  protected Image applyFunction(Image image) {
     int width = image.getWidth();
     int height = image.getHeight();
     Pixel[][] originalPixels = image.getPixels();
@@ -78,7 +80,7 @@ public class Flip implements PPMModification {
    */
   public Image modifyImage(String args, Image image) {
     this.flipType = args;
-    return flipImage(image);
+    return applyFunction(image);
   }
 }
 

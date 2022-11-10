@@ -2,9 +2,9 @@ package model.TransformModels;
 
 import model.KernalModels.Kernel;
 
-public class SepiaTransform extends Kernel
+public class SepiaTransformModel extends Kernel
 {
-  public SepiaTransform() {
+  public SepiaTransformModel() {
     super(3);
     this.kernel[0][0] = 0.393;
     this.kernel[0][1] = 0.796;

@@ -1,10 +1,12 @@
-package modifications;
+package modifications.Filters;
 
 import interactions.ImageUtil;
 import model.Image;
 import model.ImageStorage;
 import model.KernalModels.Kernel;
 import model.Pixel;
+import modifications.ModificationUtils;
+import modifications.PPMModification;
 
 public abstract class Filter implements PPMModification {
 
