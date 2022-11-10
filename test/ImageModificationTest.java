@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import interactions.ImageUtil;
 import model.Image;
 import model.ImageStorage;
+import model.KernalModels.BlurKernel;
+import model.KernalModels.Kernel;
 import modifications.Brighten;
 import modifications.Flip;
 import modifications.Greyscale;

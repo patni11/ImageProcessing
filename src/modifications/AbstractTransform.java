@@ -4,13 +4,25 @@ import model.Image;
 import model.ImageStorage;
 import model.KernalModels.Kernel;
 
-public abstract class AbstractTransform implements PPMModification{
+/**
+ * Abstract class for general transformation on an image behavior.
+ */
+public abstract class AbstractTransform implements PPMModification {
   protected ImageStorage imgStore;
 
   protected String destName;
   protected String imgName;
   protected Kernel kernel;
 
+  /**
+   * Constructor for AbstractTransform
+   * @param imageStorage - Image storage where images are currently being stored
+   *    *                     and retrieved.
+   * @param imageName - Original image name.
+   * @param kernel - Kernel for this transformation.
+   * @param destName - The resulting image name after this transformation has been
+   *                 applied.
+   */
   public AbstractTransform(ImageStorage imageStorage, String imageName,
                 Kernel kernel, String destName) {
     this.imgStore = imageStorage;
@@ -19,17 +31,19 @@ public abstract class AbstractTransform implements PPMModification{
     this.destName = destName;
   }
 
-  public AbstractTransform() {
-
-  }
-
   @Override
   public void runFunction() throws Exception {
     Image image = ModificationUtils.getImage(this.imgStore, this.imgName);
-    this.imgStore.addImage(this.destName, applyFunction(image));
+    this.imgStore.addImage(this.destName, applyTransformation(image));
   }
 
-  protected Image applyFunction(Image image){
+  /**
+   * Applies this transformation onto the original image.
+   * @param image - The image to be modified.
+   * @return - The resulting image after this transformation
+   *        has been applied to the original image.
+   */
+  protected Image applyTransformation(Image image){
     return image;
   }
 
