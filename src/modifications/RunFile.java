@@ -9,11 +9,24 @@ import Controller.ControllerImpl;
 import Controller.ImageProcessingController;
 import model.ImageStorage;
 
-public class RunFile implements PPMModification{
+/**
+ * Runs a script file so that a user may use a file of valid commands as input
+ * for the image processing software.
+ */
+public class RunFile implements PPMModification {
 
   private ImageStorage imageStorage;
   private String filename;
-  public RunFile(ImageStorage imageStorage, String filename){
+
+  /**
+   * Constructor for RunFile.
+   *
+   * @param imageStorage - Image storage where images are currently being stored
+   *                     *                     and retrieved.
+   * @param filename     - File name that holds valid scripts/commands to use
+   *                     in the image processing software.
+   */
+  public RunFile(ImageStorage imageStorage, String filename) {
     this.imageStorage = imageStorage;
     this.filename = filename;
 
@@ -27,6 +40,14 @@ public class RunFile implements PPMModification{
     controller.startEditor();
   }
 
+  /**
+   * Returns the data of the file for this instance of RunFile,
+   * appending each line to the Readable to be read by the controller
+   * of the image processing software.
+   *
+   * @return - Returns a string representing the data/information in the file.
+   * @throws FileNotFoundException - If no file is found under the provided name.
+   */
   private StringBuilder getFileData() throws FileNotFoundException {
     Scanner sc = null;
 
