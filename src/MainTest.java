@@ -1,7 +1,7 @@
 import java.io.StringReader;
 
-import Controller.ControllerImpl;
-import Controller.ImageProcessingController;
+import controller.ControllerImpl;
+import controller.ImageProcessingController;
 import model.ImageStorage;
 /**
  * The main class to run the program from for testing.

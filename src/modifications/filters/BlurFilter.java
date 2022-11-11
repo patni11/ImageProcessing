@@ -1,7 +1,7 @@
-package modifications.Filters;
+package modifications.filters;
 
 import model.ImageStorage;
-import model.KernalModels.BlurKernel;
+import model.kernalModels.BlurKernel;
 
 /**
  * Represents a Blur Filter to apply onto images.

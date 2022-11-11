@@ -1,28 +1,24 @@
-import org.junit.Before;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
-
-import interactions.ImageUtil;
 import model.Image;
 import model.ImageStorage;
-import model.KernalModels.BlurKernel;
-import model.KernalModels.Kernel;
-import model.KernalModels.SharpenKernel;
+import model.kernalModels.BlurKernel;
+import model.kernalModels.Kernel;
+import model.kernalModels.SharpenKernel;
 import model.Pixel;
 import modifications.Brighten;
-import modifications.Filters.BlurFilter;
-import modifications.Filters.Filter;
-import modifications.Filters.SharpenFilter;
+import modifications.filters.BlurFilter;
+import modifications.filters.Filter;
+import modifications.filters.SharpenFilter;
 import modifications.Flip;
 import modifications.Greyscale;
 import modifications.Load;
 import modifications.PPMModification;
 import modifications.RunFile;
 import modifications.Save;
-import modifications.Transformations.GreyscaleTransform;
-import modifications.Transformations.Sepia;
-import modifications.Transformations.Transformations;
+import modifications.transformations.GreyscaleTransform;
+import modifications.transformations.Sepia;
+import modifications.transformations.Transformations;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

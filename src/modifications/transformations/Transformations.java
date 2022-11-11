@@ -1,9 +1,9 @@
-package modifications.Transformations;
+package modifications.transformations;
 
 import interactions.ImageUtil;
 import model.Image;
 import model.ImageStorage;
-import model.KernalModels.Kernel;
+import model.kernalModels.Kernel;
 import model.Pixel;
 import modifications.AbstractTransform;
 import modifications.ModificationUtils;

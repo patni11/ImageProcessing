@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 /**
  * interface for image processing software.

@@ -2,7 +2,7 @@ package modifications;
 
 import model.Image;
 import model.ImageStorage;
-import model.KernalModels.Kernel;
+import model.kernalModels.Kernel;
 
 /**
  * Abstract class for general transformation on an image behavior.

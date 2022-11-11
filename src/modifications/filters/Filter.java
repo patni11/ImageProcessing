@@ -1,9 +1,9 @@
-package modifications.Filters;
+package modifications.filters;
 
 import interactions.ImageUtil;
 import model.Image;
 import model.ImageStorage;
-import model.KernalModels.Kernel;
+import model.kernalModels.Kernel;
 import model.Pixel;
 import modifications.ModificationUtils;
 import modifications.PPMModification;

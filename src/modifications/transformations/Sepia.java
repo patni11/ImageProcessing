@@ -1,8 +1,7 @@
-package modifications.Transformations;
+package modifications.transformations;
 
 import model.ImageStorage;
-import model.TransformModels.GreyscaleTransformModel;
-import model.TransformModels.SepiaTransformModel;
+import model.transformModels.SepiaTransformModel;
 
 /**
  * Function object to transform an image by applying the sepia

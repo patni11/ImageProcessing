@@ -1,7 +1,7 @@
 import java.io.InputStreamReader;
 
-import Controller.ControllerImpl;
-import Controller.ImageProcessingController;
+import controller.ControllerImpl;
+import controller.ImageProcessingController;
 import model.ImageStorage;
 
 

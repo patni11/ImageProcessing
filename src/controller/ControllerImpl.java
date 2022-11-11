@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.function.Function;
 
 import model.ImageStorage;
-import modifications.Filters.BlurFilter;
+import modifications.filters.BlurFilter;
 import modifications.Brighten;
 import modifications.Flip;
 import modifications.Greyscale;
@@ -14,9 +14,9 @@ import modifications.Load;
 import modifications.PPMModification;
 import modifications.RunFile;
 import modifications.Save;
-import modifications.Filters.SharpenFilter;
-import modifications.Transformations.GreyscaleTransform;
-import modifications.Transformations.Sepia;
+import modifications.filters.SharpenFilter;
+import modifications.transformations.GreyscaleTransform;
+import modifications.transformations.Sepia;
 
 /**
  * Controller impleneation for the image processing controller.
