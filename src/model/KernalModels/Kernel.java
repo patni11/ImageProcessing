@@ -14,10 +14,15 @@ public class Kernel {
    * Kernel constructor that takes in a dimension.
    *
    * @param dimension - length and width of the kernel.
+   * @throws IllegalArgumentException - If the dimension is even.
    */
-  public Kernel(int dimension) {
+  public Kernel(int dimension) throws IllegalArgumentException {
 
-    this.kernel = new double[dimension][dimension];
+    if (dimension % 2 == 0 || dimension <= 1) {
+      throw new IllegalArgumentException("Invalid dimension for kernels.");
+    } else {
+      this.kernel = new double[dimension][dimension];
+    }
   }
 
   /**

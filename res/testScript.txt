@@ -1,0 +1,3 @@
+load download.jpeg dog
+sharpen dog sdog
+sharpen sdog ssdog
