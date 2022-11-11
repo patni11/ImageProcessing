@@ -3,7 +3,7 @@ package modifications.transformations;
 import interactions.ImageUtil;
 import model.Image;
 import model.ImageStorage;
-import model.kernalModels.Kernel;
+import model.kernalmodels.Kernel;
 import model.Pixel;
 import modifications.AbstractTransform;
 import modifications.ModificationUtils;
@@ -62,7 +62,7 @@ public class Transformations extends AbstractTransform {
    * @param col    - Col of the pixel to modify.
    * @param pixels - 2D array of pixels from the original image.
    * @return - Returns a new pixel in which each channel has been modified based on the
-   * kernel for this transformation.
+   *        kernel for this transformation.
    */
   private Pixel getNewPixel(int row, int col, Pixel[][] pixels) {
     int ogR = pixels[row][col].getR();
@@ -83,9 +83,9 @@ public class Transformations extends AbstractTransform {
    *
    * @param startRow - Can be one of {0,1,2} representing the 3 different rows/channels of a pixel.
    * @param rgb - The rgb values of the pixel we are currently modifying represented as
-   * an array of 3 integers for each value.
+   *        an array of 3 integers for each value.
    * @return - Returns the value after matrix multiplying the appropriate channel by the
-   * kernel for this transformation.
+   *        kernel for this transformation.
    */
   private int multiplyMatrices(int startRow, int[] rgb) {
     double newVal = 0;

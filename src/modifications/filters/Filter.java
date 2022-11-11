@@ -3,7 +3,7 @@ package modifications.filters;
 import interactions.ImageUtil;
 import model.Image;
 import model.ImageStorage;
-import model.kernalModels.Kernel;
+import model.kernalmodels.Kernel;
 import model.Pixel;
 import modifications.ModificationUtils;
 import modifications.PPMModification;
@@ -49,7 +49,7 @@ public abstract class Filter implements PPMModification {
    * and returns a new image with the modified pixels.
    * @param img - The original image to modify.
    * @return - A new image with the kernel of this filter applied to each pixel of
-   * the supplied image.
+   *        the supplied image.
    */
   private Image applyFilter(Image img) {
     int width = img.getWidth();
@@ -116,7 +116,7 @@ public abstract class Filter implements PPMModification {
    * the dimensions of the given kernel.
    * @param channel - Represents the red, green, or blue channel of a pixel.
    * @return - Returns the value after adding the product of the current kernel for this
-   * filter and the target pixels.
+   *        filter and the target pixels.
    */
   private int multiplyMatrices(int[][] channel) {
     double[][] kernel = this.kernel.getKernel();

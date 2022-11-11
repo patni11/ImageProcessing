@@ -1,7 +1,7 @@
 package modifications.transformations;
 
 import model.ImageStorage;
-import model.transformModels.GreyscaleTransformModel;
+import model.transformmodels.GreyscaleTransformModel;
 
 /**
  * Function object to transform an image by greyscaling it.

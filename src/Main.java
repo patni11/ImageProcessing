@@ -17,7 +17,8 @@ public class Main {
    */
   public static void main(String[] args) {
     ImageStorage imgStorage = new ImageStorage();
-    ImageProcessingController controller = new ControllerImpl(new InputStreamReader(System.in), imgStorage);
+    ImageProcessingController controller =
+            new ControllerImpl(new InputStreamReader(System.in), imgStorage);
     controller.startEditor();
   }
 

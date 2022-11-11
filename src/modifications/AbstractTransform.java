@@ -2,7 +2,7 @@ package modifications;
 
 import model.Image;
 import model.ImageStorage;
-import model.kernalModels.Kernel;
+import model.kernalmodels.Kernel;
 
 /**
  * Abstract class for general transformation on an image behavior.
@@ -42,7 +42,7 @@ public abstract class AbstractTransform implements PPMModification {
    *
    * @param image - The image to be modified.
    * @return - The resulting image after this transformation
-   * has been applied to the original image.
+   *        has been applied to the original image.
    */
   protected Image applyTransformation(Image image) {
     return image;

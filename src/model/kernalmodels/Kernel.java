@@ -1,4 +1,4 @@
-package model.kernalModels;
+package model.kernalmodels;
 
 /**
  * Represents a 2D array of doubles to use in image transformations

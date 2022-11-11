@@ -1,9 +1,15 @@
-package model.transformModels;
+package model.transformmodels;
 
-import model.kernalModels.Kernel;
+import model.kernalmodels.Kernel;
 
-public class SepiaTransformModel extends Kernel
-{
+/**
+ * Kernel model used to apply the sepia transformation on an image.
+ */
+public class SepiaTransformModel extends Kernel {
+  /**
+   * SepiaTransformModel constructor that initializes a 3x3 kernel
+   *        used to apply the sepia transformation on an image.
+   */
   public SepiaTransformModel() {
     super(3);
     this.kernel[0][0] = 0.393;

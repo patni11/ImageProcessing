@@ -67,7 +67,7 @@ public class Pixel {
   }
 
   /**
-   * sets the r value of this pixel
+   * sets the r value of this pixel.
    *
    * @param r the red value of this pixel
    */
@@ -76,7 +76,7 @@ public class Pixel {
   }
 
   /**
-   * sets the g value of this pixel
+   * sets the g value of this pixel.
    *
    * @param g the green value of this pixel
    */
@@ -85,7 +85,7 @@ public class Pixel {
   }
 
   /**
-   * sets the b value of this pixel
+   * sets the b value of this pixel.
    *
    * @param b the blue value of this pixel
    */
@@ -94,7 +94,7 @@ public class Pixel {
   }
 
   /**
-   * retrieves the r value of this pixel
+   * retrieves the r value of this pixel.
    *
    * @return the red value for this pixel
    */
@@ -103,7 +103,7 @@ public class Pixel {
   }
 
   /**
-   * retrieves the g value of this pixel
+   * retrieves the g value of this pixel.
    *
    * @return the green value for this pixel
    */
@@ -112,7 +112,7 @@ public class Pixel {
   }
 
   /**
-   * retrieves the b value of this pixel
+   * retrieves the b value of this pixel.
    *
    * @return the blue value for this pixel
    */

@@ -1,6 +1,6 @@
 package interactions;
 
-import java.awt.*;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 
-import model.Image;
 import model.Image;
 import model.Pixel;
 
@@ -69,16 +68,27 @@ public class ImageUtil {
     return new Image(height, width, pixels);
   }
 
+  /**
+   * Reads the image contents of a popular image format such as jpeg or png.
+   * @param filename - Name of the file to be read from.
+   * @return - Returns an Image that can be interpreted by the image software.
+   * @throws Exception - IF the method fails to read from the provided filename.
+   */
   public static Image readNormalImage(String filename) throws Exception {
-    try{
+    try {
       BufferedImage image = ImageIO.read(new File(filename));
       return parseImage(image);
-    }catch (IOException e){
+    } catch (IOException e) {
       throw new Exception(String.valueOf(e));
     }
 
   }
 
+  /**
+   * Creates a new Image by extracting the color contents of the provided buffer image.
+   * @param image - The buffered image from a popular file format.
+   * @return - Returns an Image representation of the BufferedImage.
+   */
   private static model.Image parseImage(BufferedImage image) {
     int width = image.getWidth();
     int height = image.getHeight();
@@ -88,16 +98,17 @@ public class ImageUtil {
       for (int col = 0; col < width; col++) {
         int dataBuffer = image.getRGB(col, row);
         Color c = new Color(dataBuffer);
-        result[row][col] = new Pixel(c.getRed(),c.getGreen(),c.getBlue());
+        result[row][col] = new Pixel(c.getRed(), c.getGreen(), c.getBlue());
       }
     }
 
-    return new Image(height,width,result);
+    return new Image(height, width, result);
   }
 
 
   /**
    * returns the correct value to modify the pixel RGB value by with a min and max of 0 adn 255.
+   *
    * @param val the R, G, or B value to change
    * @return the modified R, G, or B value
    */
@@ -106,7 +117,7 @@ public class ImageUtil {
       return 255;
     }
 
-    if (val<= 0) {
+    if (val <= 0) {
       return 0;
     }
     return val;

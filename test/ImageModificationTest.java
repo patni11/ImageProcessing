@@ -2,9 +2,9 @@ import org.junit.Test;
 
 import model.Image;
 import model.ImageStorage;
-import model.kernalModels.BlurKernel;
-import model.kernalModels.Kernel;
-import model.kernalModels.SharpenKernel;
+import model.kernalmodels.BlurKernel;
+import model.kernalmodels.Kernel;
+import model.kernalmodels.SharpenKernel;
 import model.Pixel;
 import modifications.Brighten;
 import modifications.filters.BlurFilter;

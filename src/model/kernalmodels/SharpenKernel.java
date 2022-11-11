@@ -1,4 +1,4 @@
-package model.kernalModels;
+package model.kernalmodels;
 
 /**
  * Represents a sharpen kernel to apply the sharpen filter to images.

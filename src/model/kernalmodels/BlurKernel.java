@@ -1,4 +1,4 @@
-package model.kernalModels;
+package model.kernalmodels;
 
 /**
  * Represents a kernel used to apply a blur filter onto an image.

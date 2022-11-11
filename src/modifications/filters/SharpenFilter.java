@@ -1,7 +1,7 @@
 package modifications.filters;
 
 import model.ImageStorage;
-import model.kernalModels.SharpenKernel;
+import model.kernalmodels.SharpenKernel;
 
 /**
  * Represents a filter used to sharpen images.

@@ -3,11 +3,14 @@ import java.io.StringReader;
 import controller.ControllerImpl;
 import controller.ImageProcessingController;
 import model.ImageStorage;
+
 /**
  * The main class to run the program from for testing.
  * This includes a test Script and input commands
  */
+
 public class MainTest {
+
   /**
    * Main function to run the image processing program with test input.
    *
