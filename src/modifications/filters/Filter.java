@@ -27,8 +27,8 @@ public abstract class Filter implements PPMModification {
    *                     & retrieved.
    * @param imageName    - The original image that is to be filtered.
    * @param kernel       - The desired kernel to apply to each pixel in the original image.
-   * @param destName     - The name of the image after the desired kernel has been applied to each pixel
-   *                     of the original image.
+   * @param destName     - The name of the image after the desired kernel
+   *                     has been applied to each pixel of the original image.
    */
   public Filter(ImageStorage imageStorage, String imageName,
                 Kernel kernel, String destName) {
@@ -47,7 +47,6 @@ public abstract class Filter implements PPMModification {
   /**
    * Applies the kernel of this filter to each individual pixel of this image,
    * and returns a new image with the modified pixels.
-   *
    * @param img - The original image to modify.
    * @return - A new image with the kernel of this filter applied to each pixel of
    * the supplied image.
@@ -84,8 +83,11 @@ public abstract class Filter implements PPMModification {
     int imgKernelRow = 0;
     int imgKernelCol = 0;
 
-    for (int i = row - (this.kernel.getDimension() / 2); i <= row + (this.kernel.getDimension() / 2); i++) {
-      for (int j = col - (this.kernel.getDimension() / 2); j <= col + (this.kernel.getDimension() / 2); j++) {
+    for (int i = row - (this.kernel.getDimension() / 2);
+         i <= row + (this.kernel.getDimension() / 2); i++) {
+
+      for (int j = col - (this.kernel.getDimension() / 2);
+           j <= col + (this.kernel.getDimension() / 2); j++) {
 
         Pixel currentPixel;
 
@@ -104,14 +106,14 @@ public abstract class Filter implements PPMModification {
       imgKernelCol = 0;
     }
 
-    return new Pixel(multiplyMatrices(rChannel), multiplyMatrices(gChannel), multiplyMatrices(bChannel));
+    return new Pixel(multiplyMatrices(rChannel), multiplyMatrices(gChannel),
+            multiplyMatrices(bChannel));
 
   }
 
   /**
    * Applies the kernel to the target pixel and its surrounding pixels based on
    * the dimensions of the given kernel.
-   *
    * @param channel - Represents the red, green, or blue channel of a pixel.
    * @return - Returns the value after adding the product of the current kernel for this
    * filter and the target pixels.

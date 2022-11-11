@@ -47,6 +47,7 @@ public class Brighten implements PPMModification {
 
   /**
    * brightens an image.
+   *
    * @param image the image to be modified
    * @return the image with each individual pixelk modified based on the provided argument
    */

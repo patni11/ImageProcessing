@@ -40,16 +40,16 @@ public class Load implements PPMModification {
   public void runFunction() throws Exception {
     Image img;
 
-    if (this.fileName.substring((this.fileName.length()-3)).equals("ppm")){
+    if (this.fileName.substring((this.fileName.length() - 3)).equals("ppm")) {
       img = getPPM();
-    }else{
+    } else {
       img = getNormalImage();
     }
 
     this.imgStorage.addImage(this.destName, img);
   }
 
-  private Image getPPM() throws Exception{
+  private Image getPPM() throws Exception {
     try {
       return ImageUtil.readPPM(this.fileName);
     } catch (FileNotFoundException e) {

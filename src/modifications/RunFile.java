@@ -15,8 +15,8 @@ import model.ImageStorage;
  */
 public class RunFile implements PPMModification {
 
-  private ImageStorage imageStorage;
-  private String filename;
+  private final ImageStorage imageStorage;
+  private final String filename;
 
   /**
    * Constructor for RunFile.

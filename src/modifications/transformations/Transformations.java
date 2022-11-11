@@ -17,10 +17,9 @@ public class Transformations extends AbstractTransform {
   /**
    * Constructor for Transformations.
    *
-   * @param imageStorage - Image storage where images are currently being stored
-   *                     *                     and retrieved.
+   * @param imageStorage - Image storage where images are currently being stored and retrieved.
    * @param imageName    - Original image name.
-   * @param kernel       - The kernel for this transformation, represented as a 2D array of doubles.
+   * @param kernel       - The kernel for this transformation, represented as a 2D array of doubles
    * @param destName     - The resulting image name after this transformation has been applied.
    */
   public Transformations(ImageStorage imageStorage, String imageName,
@@ -37,7 +36,6 @@ public class Transformations extends AbstractTransform {
   /**
    * Modifies each pixel in the original image using the current kernel associated
    * with this transformation.
-   *
    * @param img - The original image.
    * @return - A transformed image with each pixel modified.
    */
@@ -60,7 +58,6 @@ public class Transformations extends AbstractTransform {
   /**
    * Creates a new pixel using the kernel associated with this transformation
    * and applies matrix multiplication for the red, green, and blue channels.
-   *
    * @param row    - Row of the pixel to modify.
    * @param col    - Col of the pixel to modify.
    * @param pixels - 2D array of pixels from the original image.
@@ -84,10 +81,9 @@ public class Transformations extends AbstractTransform {
    * Returns the value after applying matrix multiplication to the
    * provided channel of a pixel using the kernel for this transformation.
    *
-   * @param startRow - Can be one of {0,1,2} representing the 3 different rows/channels
-   *                 of a pixel.
-   * @param rgb      - The rgb values of the pixel we are currently modifying represented as
-   *                 an array of 3 integers for each value.
+   * @param startRow - Can be one of {0,1,2} representing the 3 different rows/channels of a pixel.
+   * @param rgb - The rgb values of the pixel we are currently modifying represented as
+   * an array of 3 integers for each value.
    * @return - Returns the value after matrix multiplying the appropriate channel by the
    * kernel for this transformation.
    */

@@ -44,6 +44,7 @@ public class Greyscale implements PPMModification {
 
   /**
    * greyscale the image with respect to a component based on the argument provided.
+   *
    * @param image the image to be modified
    * @return the greyscaled image
    */
@@ -63,7 +64,8 @@ public class Greyscale implements PPMModification {
 
   /**
    * greyscales an individual pixel.
-   * @param arg the provided desired component to greyscale by
+   *
+   * @param arg   the provided desired component to greyscale by
    * @param pixel the pixel to modify
    * @return the modified pixel
    */
@@ -87,6 +89,7 @@ public class Greyscale implements PPMModification {
 
   /**
    * greyscale based on the red component, overwriting g and b values to be equal to r.
+   *
    * @param p the pixel to modify
    * @return the modified pixel
    */
@@ -96,6 +99,7 @@ public class Greyscale implements PPMModification {
 
   /**
    * greyscale based on the green component, overwriting r and b values to be equal to g.
+   *
    * @param p the pixel to modify
    * @return the modified pixel
    */
@@ -105,6 +109,7 @@ public class Greyscale implements PPMModification {
 
   /**
    * greyscale based on the blue component, overwriting r and g values to be equal to b.
+   *
    * @param p the pixel to modify
    * @return the modified pixel
    */
@@ -115,6 +120,7 @@ public class Greyscale implements PPMModification {
   /**
    * greyscale based on the red component, overwriting r, g and b values
    * to be equal to the max of those values.
+   *
    * @param p the pixel to modify
    * @return the modified pixel
    */
@@ -126,6 +132,7 @@ public class Greyscale implements PPMModification {
   /**
    * greyscale based on the red component, overwriting r, g and b values
    * to be equal to the average of those values.
+   *
    * @param p the pixel to modify
    * @return the modified pixel
    */
@@ -137,6 +144,7 @@ public class Greyscale implements PPMModification {
   /**
    * greyscale based on the red component, overwriting r, g and b values
    * to be equal to the of the luma formula using those values.
+   *
    * @param p the pixel to modify
    * @return the modified pixel
    */

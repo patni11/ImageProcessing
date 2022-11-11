@@ -15,16 +15,16 @@ public abstract class AbstractTransform implements PPMModification {
   protected Kernel kernel;
 
   /**
-   * Constructor for AbstractTransform
-   * @param imageStorage - Image storage where images are currently being stored
-   *    *                     and retrieved.
-   * @param imageName - Original image name.
-   * @param kernel - Kernel for this transformation.
-   * @param destName - The resulting image name after this transformation has been
-   *                 applied.
+   * Constructor for AbstractTransform.
+   *
+   * @param imageStorage - Image storage where images are currently being stored and retrieved.
+   * @param imageName    - Original image name.
+   * @param kernel       - Kernel for this transformation.
+   * @param destName     - The resulting image name after this transformation has been
+   *                     applied.
    */
   public AbstractTransform(ImageStorage imageStorage, String imageName,
-                Kernel kernel, String destName) {
+                           Kernel kernel, String destName) {
     this.imgStore = imageStorage;
     this.imgName = imageName;
     this.kernel = kernel;
@@ -39,11 +39,12 @@ public abstract class AbstractTransform implements PPMModification {
 
   /**
    * Applies this transformation onto the original image.
+   *
    * @param image - The image to be modified.
    * @return - The resulting image after this transformation
-   *        has been applied to the original image.
+   * has been applied to the original image.
    */
-  protected Image applyTransformation(Image image){
+  protected Image applyTransformation(Image image) {
     return image;
   }
 
