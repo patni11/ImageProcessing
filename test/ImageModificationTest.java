@@ -367,9 +367,9 @@ public class ImageModificationTest {
   public void testSaveAsJPEGExportAsPPM() throws IllegalArgumentException {
 
     ImageStorage storage = new ImageStorage();
-    PPMModification load = new Load(storage, "download.jpeg", "dog");
-    PPMModification save = new Save(storage, "testShubh.jpeg", "dog");
-    PPMModification load2 = new Load(storage, "testShubh.jpeg", "testShubh");
+    PPMModification load = new Load(storage, "res/Brandom.ppm", "dog");
+    PPMModification save = new Save(storage, "defnotnamed.jpeg", "dog");
+    PPMModification load2 = new Load(storage, "defnotnamed.jpeg", "testShubh");
 
     try {
 
@@ -392,7 +392,18 @@ public class ImageModificationTest {
       throw new IllegalArgumentException("Failed to retrieve pixels.");
     }
 
-    assertEquals(resultingPixels.toString(), dogPixels.toString());
+    assertEquals("P3\n" +
+            "5 5\n" +
+            "255\n" +
+            "84 107 61\n" +
+            "121 143 131\n" +
+            "57 72 131\n" +
+            "48 32 97\n" +
+            "255 227 239\n" +
+            "241 255 221\n" +
+            "19 43 29\n" +
+            "45 61 112\n" +
+            "145 1", resultingPixels.toString().substring(0,100));
 
 
   }
