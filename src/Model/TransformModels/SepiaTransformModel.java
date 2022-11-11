@@ -1,6 +1,6 @@
-package model.TransformModels;
+package model.transformModels;
 
-import model.KernalModels.Kernel;
+import model.kernalModels.Kernel;
 
 public class SepiaTransformModel extends Kernel
 {
