@@ -19,6 +19,7 @@ import modifications.Greyscale;
 import modifications.Load;
 import modifications.PPMModification;
 import modifications.RunFile;
+import modifications.Save;
 import modifications.Transformations.GreyscaleTransform;
 import modifications.Transformations.Sepia;
 import modifications.Transformations.Transformations;
@@ -361,6 +362,41 @@ public class ImageModificationTest {
             "255\n" +
             "197 191 22", resulting.toString().substring(0, 25));
   }
+
+  @Test
+  public void testSaveAsJPEGExportAsPPM() throws IllegalArgumentException {
+
+    ImageStorage storage = new ImageStorage();
+    PPMModification load = new Load(storage, "download.jpeg", "dog");
+    PPMModification save = new Save(storage, "testShubh.jpeg", "dog");
+    PPMModification load2 = new Load(storage, "testShubh.jpeg", "testShubh");
+
+    try {
+
+      load.runFunction();
+      save.runFunction();
+      load2.runFunction();
+
+    } catch (Exception e) {
+      throw new IllegalArgumentException("Failed to save and load the image.");
+    }
+
+    Image resultingPixels;
+    Image dogPixels;
+
+    try {
+
+      resultingPixels = storage.getImage("testShubh");
+      dogPixels = storage.getImage("dog");
+    } catch (Exception e) {
+      throw new IllegalArgumentException("Failed to retrieve pixels.");
+    }
+
+    assertEquals(resultingPixels.toString(), dogPixels.toString());
+
+
+  }
+
 
   //toString Test
   @Test
