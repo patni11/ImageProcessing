@@ -3,6 +3,8 @@ import java.io.InputStreamReader;
 import controller.ControllerImpl;
 import controller.ImageProcessingController;
 import model.ImageStorage;
+import view.ImageProcessorGUIView;
+import view.SwingImageProcessorGUI;
 
 
 /**
@@ -16,10 +18,15 @@ public class Main {
    * @param args takes in default args
    */
   public static void main(String[] args) {
+
+    /*
     ImageStorage imgStorage = new ImageStorage();
     ImageProcessingController controller =
             new ControllerImpl(new InputStreamReader(System.in), imgStorage);
     controller.startEditor();
+     */
+
+    ImageProcessorGUIView view = new SwingImageProcessorGUI();
   }
 
 }
