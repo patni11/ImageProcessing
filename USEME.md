@@ -29,9 +29,8 @@ Supported Script Commands:
   - brighten 50 dog brightDog
   - value must be an integer
   - the first image_name must reference a valid image loaded into the storage/software.
-- darken - darken value image_name image_name
-  - darken 20 dog darkDog
-  - value must be an integer
+- sepia - sepia image_name image_name
+  - sepia dog sepiaDog
   - the first image_name must reference a valid image loaded into the storage/software.
 - horizontal-flip - horizontal-flip image_name image_name
   - horizontal-flip dog horizontalDog
