@@ -38,6 +38,7 @@ public class SwingImageProcessorGUI extends JFrame
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     frame.add(new JScrollPane(new histogramView(dog, 800, 800)));
+
     frame.pack();
     frame.setLocationRelativeTo(null);
     frame.setVisible(true);
