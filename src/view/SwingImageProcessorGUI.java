@@ -34,6 +34,7 @@ public class SwingImageProcessorGUI extends JFrame
     // Image & Histogram
     imageHistorgram = new JPanel();
     imageHistorgram.setLayout(new GridLayout(1,0,10,10));
+    imageHistorgram.setBorder(BorderFactory.createTitledBorder("Image & Histogram"));
 
     ImageStorage storage = new ImageStorage();
     Load func = new Load(storage, "download.jpeg", "dog");
@@ -48,8 +49,9 @@ public class SwingImageProcessorGUI extends JFrame
     }
 
 
+    JLabel test = new JLabel();
     imageHistorgram.add(new JLabel(new ImageIcon("download.jpeg")));
-    imageHistorgram.add((new histogramView(dog,400,400)));
+    imageHistorgram.add((new JLabel(new histogramView(dog,400,400))));
 
 
     mainPanel.add(imageHistorgram);
@@ -59,15 +61,22 @@ public class SwingImageProcessorGUI extends JFrame
     this.setSize(1200,1200);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    // Load and Save Buttons
+    JPanel loadSave = new JPanel();
+    loadSave.setLayout(new GridLayout(1,0,10,10));
+    loadSave.setBorder(BorderFactory.createTitledBorder("Load & Save"));
+    mainPanel.add(loadSave);
+    makeButton(loadSave, "Load an Image");
+    makeButton(loadSave, "Save Image");
 
-    // ImageEditing Buttons
+
+    // Transformation Buttons
     JPanel allButtons = new JPanel();
     allButtons.setLayout(new GridLayout(4,4,10,10));
+    allButtons.setBorder(BorderFactory.createTitledBorder("Image Modifications"));
     mainPanel.add(allButtons);
 
     //  Buttons without Input
-    makeButton(allButtons, "Load an Image");
-    makeButton(allButtons, "Save an Image");
     makeButton(allButtons, "Blur");
     makeButton(allButtons, "Sharpen");
     makeButton(allButtons, "Greyscale");
@@ -77,11 +86,10 @@ public class SwingImageProcessorGUI extends JFrame
     makeButton(allButtons, "Sepia");
     makeButton(allButtons, "Horizontal Flip");
     makeButton(allButtons, "Vertical Flip");
-    makeButton(allButtons, "Sharpen");
     makeButton(allButtons, "Luma Greyscale");
     makeButton(allButtons, "Value Greyscale");
     makeButton(allButtons, "Intensity Greyscale");
-    makeButton(allButtons, "Sharpen");
+
 
     // ImageEditing Buttons that need Input
     JPanel brighten = new JPanel();

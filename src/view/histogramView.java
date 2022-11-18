@@ -11,7 +11,7 @@ import javax.swing.*;
 import model.Image;
 import model.Pixel;
 
-public class histogramView extends JPanel {
+public class histogramView implements Icon {
   Image image;
   int width;
   int height;
@@ -33,13 +33,12 @@ public class histogramView extends JPanel {
     this.histogram = new Histogram(image);
     this.maxFrequency = histogram.getMaxFrequency();
     Dimension size = new Dimension(width, height);
-    setSize(size);
 
   }
 
   @Override
-  protected void paintComponent(Graphics g) {
-    super.paintComponent(g);
+  public void paintIcon(Component c, Graphics g, int x, int y) {
+
     if (histogram != null){
       Graphics2D g2d = (Graphics2D) g.create();
       g2d.setColor(Color.DARK_GRAY);
@@ -75,6 +74,16 @@ public class histogramView extends JPanel {
     System.out.println(xPos);
   }
 
+
+  @Override
+  public int getIconWidth() {
+    return this.width;
+  }
+
+  @Override
+  public int getIconHeight() {
+    return this.height;
+  }
 }
 
 
