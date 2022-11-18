@@ -27,6 +27,7 @@ public class Main {
      */
 
     ImageProcessorGUIView view = new SwingImageProcessorGUI();
+
   }
 
 }
