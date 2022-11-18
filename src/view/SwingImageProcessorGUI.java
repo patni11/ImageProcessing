@@ -48,6 +48,7 @@ public class SwingImageProcessorGUI extends JFrame
       System.out.println(String.valueOf(e));
     }
 
+    JPanel test = new JPanel();
     imageHistorgram.add(new JLabel(new ImageIcon("download.jpeg")));
     imageHistorgram.add((new JLabel(new histogramView(dog,400,400))));
 
